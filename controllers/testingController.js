@@ -6,7 +6,6 @@ exports.coba = async(req,res) => {
         return res.status(200).json({
             status: true,
             msg: 'sukses',
-            data: test
         });
     } catch (error) {
         console.log(error);
