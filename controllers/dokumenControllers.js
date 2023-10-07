@@ -23,6 +23,7 @@ const {
   SuketPisahRumah,
   SuketPernyataanWaris,
   SuketPengurusanPBB,
+  SuketPengurusanKK,
 } = require("../models");
 const docxTemplate = require("../utils/docxTemplater");
 const path = require("path");
@@ -1082,6 +1083,49 @@ exports.insertSuketPengurusanPBB = async (req, res) => {
   }
 };
 
+exports.insertSuketPengurusanKK = async (req, res) => {
+  try {
+    const data = req.body;
+
+    const respInsert = await SuketPengurusanKK.create(data);
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_suketpengurusankk.docx"
+    );
+    const namaFile = await docxTemplate.generate(
+      data,
+      pathTemplate,
+      "suketpengurusankk"
+    );
+
+    const respData = respInsert.toJSON();
+
+    await SuketPengurusanKK.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
+
+    return res.status(200).json({
+      status: true,
+      msg: "Berhasil",
+    });
+  } catch (error) {
+    console.error("Error while inserting data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+};
 
 
 

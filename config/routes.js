@@ -59,6 +59,7 @@ router.post('/suketpernyataanwaris/buat',dokumenController.insertSuketPernyataan
 //suketpengurusanpbb
 router.post('/suketpengurusanpbb/buat',dokumenController.insertSuketPengurusanPBB);
 //suketpengurusankk
+router.post('/suketpengurusankk/buat',dokumenController.insertSuketPengurusanKK);
 
 
 
