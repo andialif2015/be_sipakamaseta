@@ -35,7 +35,32 @@ exports.generate = async(data, pathTemplate, jenis) => {
           dataForm = setDataSuketKehilanganStpd(data);
         }else if(jenis == 'suketkehilangankk'){
           dataForm = setDataSuketKehilangankk(data);
+        }else if(jenis == 'suketkekerabatan'){
+          dataForm = setDataSuketKekerabatan(data);
+        }else if(jenis == 'suketlahirdesa'){
+          dataForm = setDataSuketLahirDesa(data);
+        }else if(jenis == 'suketlokasitanah'){
+          dataForm = setDataSuketLokasiTanah(data);
+        }else if(jenis == 'suketmenantu'){
+          dataForm = setDataSuketMenantu(data);
+        }else if(jenis == 'suketpendudukliar'){
+          dataForm = setDataSuketPendudukLiar(data);
+        }else if(jenis == 'suketpenegasanwil'){
+          dataForm = setDataSuketPenegasanWil(data);
+        }else if(jenis == 'suketaktifperusahaan'){
+          dataForm = setDataSuketAktifPerusahaan(data);
+        }else if(jenis == 'suketuntukmenikah'){
+          dataForm = setDataSuketUntukMenikah(data);
+        }else if(jenis == 'sukettelahmenikah'){
+          dataForm = setDataSuketTelahMenikah(data);
+        }else if(jenis == 'suketpisahrumah'){
+          dataForm = setDataSuketPisahRumah(data);
+        }else if(jenis == 'suketpernyataanwaris'){
+          dataForm = setDataSuketPernyataanWaris(data);
+        }else if(jenis == 'suketpengurusanpbb'){
+          dataForm = setDataSuketPengurusanPBB(data);
         }
+
 
         doc.setData(dataForm);
         doc.render();
@@ -122,19 +147,16 @@ function setDataSpToDesa(data){
   return {
     name: data.name,
     nohp: data.nohp,
-    tempatL: data.tempatlahir,
-    tglL: data.tgl,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
     alamat: data.alamat,
     agama: data.agama,
     gender: data.gender,
-    sekolah: data.sekolah,
-    namewali: data.namewali,
-    tempatLwali: data.tempatlahirwali,
-    tglLwali: data.tglwali,
-    alamatwali: data.alamatwali,
-    genderwali: data.genderwali,
-    agamawali: data.agamawali,
-    workwali: data.workwali,
+    nik: data.nik,
+    nokk: data.nokk,
+    work: data.work,
+    dusun: data.dusun,
+    tujuan: data.tujuan,
   }
 }
 
@@ -162,19 +184,13 @@ function setDataSuperUtangPiutang(data) {
   return {
     name: data.name,
     nohp: data.nohp,
-    tempatL: data.tempatlahir,
-    tglL: data.tgl,
     alamat: data.alamat,
-    agama: data.agama,
-    gender: data.gender,
-    sekolah: data.sekolah,
-    namewali: data.namewali,
-    tempatLwali: data.tempatlahirwali,
-    tglLwali: data.tglwali,
-    alamatwali: data.alamatwali,
-    genderwali: data.genderwali,
-    agamawali: data.agamawali,
-    workwali: data.workwali,
+    work: data.work,
+    umur: data.umur,
+    name_dua: data.name_dua,
+    alamat_dua: data.alamat_dua,
+    work_dua: data.work_dua,
+    umur_dua: data.umur_dua,
   };
 }
 
@@ -192,14 +208,14 @@ function setDataSuketJabatan(data) {
 function setDataSuketDomisili(data) {
   return {
     name: data.name,
-      tempatL: data.tempatlahir,
-      tglL: data.tgl,
-      gender: data.gender,
-      agama: data.agama,
-      work: data.pekerjaan,
-      nik: data.nik,
-      stsnkh: data.stsnkh,
-      alamat: data.alamat,
+    tempatL: data.tempatlahir,
+    tglL: data.tgl,
+    gender: data.gender,
+    agama: data.agama,
+    work: data.pekerjaan,
+    nik: data.nik,
+    stsnkh: data.stsnkh,
+    alamat: data.alamat,
   };
 }
 
@@ -249,15 +265,156 @@ function setDataSuketKehilangankk(data) {
     tempatL: data.tempatlahir,
     tglL: data.tgl,
     alamat: data.alamat,
-    agama: data.agama,
-    gender: data.gender,
-    sekolah: data.sekolah,
-    namewali: data.namewali,
-    tempatLwali: data.tempatlahirwali,
-    tglLwali: data.tglwali,
-    alamatwali: data.alamatwali,
-    genderwali: data.genderwali,
-    agamawali: data.agamawali,
-    workwali: data.workwali,
+    nik: data.nik,
+    nokk: data.nokk,
+    alasan: data.alasan,
   };
+}
+
+function setDataSuketKekerabatan(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatlahir,
+    tglL: data.tgl,
+    alamat: data.alamat,
+    gender: data.gender,
+    nik: data.nik,
+  }
+}
+
+function setDataSuketLahirDesa(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatlahir,
+    tglL: data.tgl,
+    alamat: data.alamat,
+    ayah: data.ayah,
+    ibu: data.ibu,
+  }
+}
+
+function setDataSuketLokasiTanah(data){
+  return {
+    namepemilik: data.namepemilik,
+    alamattanah: data.alamattanah,
+    luastanah: data.luastanah,
+    luasbangunan: data.luasbangunan,
+    dusun: data.dusun,
+    nosertiftanah: data.nosertiftanah,
+  }
+}
+
+function setDataSuketMenantu(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatlahir,
+    tglL: data.tgl,
+    alamat: data.alamat,
+    nameMertua: data.namemertua,
+    tempatLMertua: data.tempatlahirmertua,
+    tglLMertua: data.tglmertua,
+    alamatmertua: data.alamatmertua
+  }
+}
+function setDataSuketPendudukLiar(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
+    alamat: data.alamat,
+    gender: data.gender,
+    agama: data.agama,
+    work: data.work,
+  }
+}
+
+function setDataSuketPenegasanWil(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    alamat: data.alamat,
+    jabatan: data.jabatan,
+  }
+}
+
+function setDataSuketAktifPerusahaan(data){
+  return {
+    namept: data.namept,
+    nohp: data.nohp,
+  }
+}
+
+function setDataSuketUntukMenikah(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+  }
+}
+
+function setDataSuketTelahMenikah(data){
+  return {
+    namepria: data.namepria, //raka tes
+    nohppria: data.nohppria, //kelihatan kah
+    tempatLpria: data.tempatlahirpria,
+    tglLpria: data.tglpria,
+    alamatpria: data.alamatpria,
+    agamapria: data.agamapria,
+    workpria: data.workpria,
+    namewanita: data.namewanita,
+    nohpwanita: data.nohpwanita,
+    tempatLwanita: data.tempatlahirwanita,
+    tglLwanita: data.tglwanita,
+    alamatwanita: data.alamatwanita,
+    agamawanita: data.agamawanita,
+    workwanita: data.workwanita,
+    tglnikah: data.tglnikah,
+    lokasinikah: data.lokasinikah,
+  }
+}
+
+function setDataSuketPisahRumah(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
+    gender: data.gender,
+    agama: data.agama,
+    work: data.work,
+    nik: data.nik,
+    alamat: data.alamat,
+    dusun: data.dusun,
+  }
+}
+
+function setDataSuketPernyataanWaris(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
+    work: data.work,
+    alamat: data.alamat,
+  }
+}
+
+function setDataSuketPengurusanPBB(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    nik: data.nik,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
+    gender: data.gender,
+    agama: data.agama,
+    work: data.work,
+    alamat: data.alamat,
+    dusun: data.dusun,
+    rtrw: data.rtrw,
+    nama_anak: data.nama_anak,
+  }
 }

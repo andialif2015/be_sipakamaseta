@@ -34,6 +34,34 @@ router.post("/suketdomisili/buat", dokumenController.insertSuketDomisili);
 router.post("/suketghoib/buat", dokumenController.insertSuketGhoib);
 //suketkehilanganstpd
 router.post('/suketkehilanganstpd/buat', dokumenController.insertSuketKehilanganStpd);
-//
+//suketkehinlangankk
+router.post('/suketkehilangankk/buat', dokumenController.insertSuketKehilanganKK);
+//suketkekerabatan
+router.post('/suketkekerabatan/buat', dokumenController.insertSuketKekerabatan);
+//suketlahirdesa
+router.post('/suketlahirdesa/buat', dokumenController.insertSuketLahirDesa);
+//suketlokasitanah
+router.post('/suketlokasitanah/buat', dokumenController.insertSuketLokasiTanah);
+//suketmenantu
+router.post('/suketmenantu/data', dokumenController.insertSuketMenantu);
+//suketpendudukliar
+router.post('/suketpendudukliar/buat', dokumenController.insertSuketPendudukLiar);
+//suketpenegasanwil
+router.post('/suketpenegasanwil/buat', dokumenController.insertSuketPenegasanWil);
+//suketaktifperusahaan
+router.post('/suketaktifperusahaan/buat', dokumenController.insertSuketAktifPerusahaan);
+//sukettelahmenikah
+router.post('/sukettelahmenikah/buat', dokumenController.insertSuketTelahMenikah);
+//suketpisahrumah
+router.post('/suketpisahrumah/buat', dokumenController.insertSuketPisahRumah);
+//suketpernyataanwaris
+router.post('/suketpernyataanwaris/buat',dokumenController.insertSuketPernyataanWaris);
+//suketpengurusanpbb
+router.post('/suketpengurusanpbb/buat',dokumenController.insertSuketPengurusanPBB);
+//suketpengurusankk
+
+
+
+
 
 module.exports = router;

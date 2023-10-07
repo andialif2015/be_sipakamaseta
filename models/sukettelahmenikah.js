@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class SuperUtangPiutang extends Model {
+  class SuketTelahMenikah extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  SuperUtangPiutang.init(
+  SuketTelahMenikah.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -25,15 +25,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
       },
-      name: DataTypes.STRING,
-      nohp: DataTypes.STRING,
-      alamat: DataTypes.STRING,
-      work: DataTypes.STRING,
-      umur: DataTypes.STRING,
-      name_dua: DataTypes.STRING,
-      alamat_dua: DataTypes.STRING,
-      work_dua: DataTypes.STRING,
-      umur_dua: DataTypes.STRING,
+      namepria: DataTypes.STRING,
+      nohppria: DataTypes.STRING,
+      tempatLpria: DataTypes.STRING,
+      tglLpria: DataTypes.STRING,
+      alamatpria: DataTypes.STRING,
+      agamapria: DataTypes.STRING,
+      workpria: DataTypes.STRING,
+      namewanita: DataTypes.STRING,
+      nohpwanita: DataTypes.STRING,
+      tempatLwanita: DataTypes.STRING,
+      tglLwanita: DataTypes.STRING,
+      alamatwanita: DataTypes.STRING,
+      agamawanita: DataTypes.STRING,
+      workwanita: DataTypes.STRING,
+      tglnikah: DataTypes.STRING,
+      lokasinikah: DataTypes.STRING,
       status: {
         type: DataTypes.TINYINT,
         defaultValue: 0,
@@ -45,10 +52,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "SuperUtangPiutang",
-      tableName: "superutangpiutang",
+      modelName: "SuketTelahMenikah",
+      tableName: "sukettelahmenikah",
       timestamps: false,
     }
   );
-  return SuperUtangPiutang;
+  return SuketTelahMenikah;
 };

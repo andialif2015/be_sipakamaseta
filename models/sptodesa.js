@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       createdAt: {
         type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
+        defaultValue: DataTypes.NOW, // Set default value to the current timestamp
       },
       name: DataTypes.STRING,
       nohp: DataTypes.STRING,
@@ -32,17 +32,14 @@ module.exports = (sequelize, DataTypes) => {
       alamat: DataTypes.STRING,
       agama: DataTypes.STRING,
       gender: DataTypes.STRING,
-      sekolah: DataTypes.STRING,
-      namewali: DataTypes.STRING,
-      tempatLwali: DataTypes.STRING,
-      tglLwali: DataTypes.STRING,
-      alamatwali: DataTypes.STRING,
-      genderwali: DataTypes.STRING,
-      agamawali: DataTypes.STRING,
-      workwali: DataTypes.STRING,
+      nik: DataTypes.STRING,
+      nokk: DataTypes.STRING,
+      work: DataTypes.STRING,
+      dusun: DataTypes.STRING,
+      tujuan: DataTypes.STRING,
       status: {
         type: DataTypes.TINYINT,
-        defaultValue: 0,
+        defaultValue: 0, // Set the default value to 0 (for false)
       },
       fileName: {
         type: DataTypes.STRING,
@@ -52,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "SpToDesa",
-      tableName: "sptodesa",
+      tableName: "spkedesa",
       timestamps: false,
     }
   );
