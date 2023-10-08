@@ -342,6 +342,7 @@ exports.insertSuperImunisasi = async (req, res) => {
   try {
     const data = req.body;
 
+    console.log(data);
     const respInsert = await SuperImunasasi.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -1277,6 +1278,8 @@ exports.getAllSuketUntukMenikah = async (req, res) => {
 exports.insertSuketTelahMenikah = async (req, res) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuketTelahMenikah.create(data);
     const pathTemplate = path.join(
