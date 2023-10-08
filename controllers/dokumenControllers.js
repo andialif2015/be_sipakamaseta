@@ -461,6 +461,8 @@ exports.insertSuketJabatan = async (req, res) => {
   try {
     const data = req.body;
 
+    console.log(data);
+
     const respInsert = await SuketJabatan.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -521,6 +523,8 @@ exports.getAllSuketJabatan = async (req, res) => {
 exports.insertSuketDomisili = async (req, res) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuketDomisili.create(data);
     const pathTemplate = path.join(
@@ -583,6 +587,7 @@ exports.insertSuketGhoib = async (req, res) => {
   try {
     const data = req.body;
 
+    console.log(data);
     const respInsert = await SuketGhoib.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -627,6 +632,8 @@ exports.getAllSuketGhoib = async (req, res) => {
   try {
     const records = await SuketGhoib.findAll(); // Retrieve all records from the SuketGhoib table
 
+    console.log(records);
+
     return res.status(200).json({
       status: true,
       data: records, // Send the records as JSON response
@@ -643,6 +650,8 @@ exports.getAllSuketGhoib = async (req, res) => {
 exports.insertSuketKehilanganStpd = async (req, res) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuketKehilanganStpd.create(data);
     const pathTemplate = path.join(
@@ -767,6 +776,8 @@ exports.getAllSuketKehilanganKK = async (req, res) => {
 exports.insertSuketKekerabatan = async (req, res) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuketKekerabatan.create(data);
     const pathTemplate = path.join(
