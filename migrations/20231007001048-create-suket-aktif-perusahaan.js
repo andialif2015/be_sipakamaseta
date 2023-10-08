@@ -2,27 +2,32 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SuketAktifPerusahaans', {
+    await queryInterface.createTable("SuketAktifPerusahaans", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      namept: {
-        type: Sequelize.STRING
-      },
-      nohp: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       createdAt: {
+        type: DataTypes.DATE,
         allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: DataTypes.NOW,
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+      namept: {
+        type: Sequelize.STRING,
+      },
+      nohp: {
+        type: Sequelize.STRING,
+      },
+      status: {
+        type: DataTypes.TINYINT,
+        defaultValue: 0, // Set the default value to 0 (for false)
+      },
+      fileName: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
     });
   },
   async down(queryInterface, Sequelize) {

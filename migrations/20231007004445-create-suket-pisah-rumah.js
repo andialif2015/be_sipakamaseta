@@ -2,51 +2,56 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SuketPisahRumahs', {
+    await queryInterface.createTable("SuketPisahRumahs", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      name: {
-        type: Sequelize.STRING
-      },
-      nohp: {
-        type: Sequelize.STRING
-      },
-      tempatL: {
-        type: Sequelize.STRING
-      },
-      tglL: {
-        type: Sequelize.STRING
-      },
-      gender: {
-        type: Sequelize.STRING
-      },
-      agama: {
-        type: Sequelize.STRING
-      },
-      work: {
-        type: Sequelize.STRING
-      },
-      nik: {
-        type: Sequelize.STRING
-      },
-      alamat: {
-        type: Sequelize.STRING
-      },
-      dusun: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       createdAt: {
+        type: DataTypes.DATE,
         allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: DataTypes.NOW,
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+      name: {
+        type: Sequelize.STRING,
+      },
+      nohp: {
+        type: Sequelize.STRING,
+      },
+      tempatL: {
+        type: Sequelize.STRING,
+      },
+      tglL: {
+        type: Sequelize.STRING,
+      },
+      gender: {
+        type: Sequelize.STRING,
+      },
+      agama: {
+        type: Sequelize.STRING,
+      },
+      work: {
+        type: Sequelize.STRING,
+      },
+      nik: {
+        type: Sequelize.STRING,
+      },
+      alamat: {
+        type: Sequelize.STRING,
+      },
+      dusun: {
+        type: Sequelize.STRING,
+      },
+      status: {
+        type: DataTypes.TINYINT,
+        defaultValue: 0, // Set the default value to 0 (for false)
+      },
+      fileName: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
     });
   },
   async down(queryInterface, Sequelize) {

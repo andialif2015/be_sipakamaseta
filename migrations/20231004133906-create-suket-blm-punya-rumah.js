@@ -2,48 +2,53 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SuketBlmPunyaRumahs', {
+    await queryInterface.createTable("suketblmpunyarumah", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      name: {
-        type: Sequelize.STRING
-      },
-      nik: {
-        type: Sequelize.STRING
-      },
-      alamat: {
-        type: Sequelize.STRING
-      },
-      gender: {
-        type: Sequelize.STRING
-      },
-      work: {
-        type: Sequelize.STRING
-      },
-      agama: {
-        type: Sequelize.STRING
-      },
-      rtrw: {
-        type: Sequelize.STRING
-      },
-      dusun: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       createdAt: {
+        type: DataTypes.DATE,
         allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: DataTypes.NOW,
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+      name: {
+        type: Sequelize.STRING,
+      },
+      nik: {
+        type: Sequelize.STRING,
+      },
+      alamat: {
+        type: Sequelize.STRING,
+      },
+      gender: {
+        type: Sequelize.STRING,
+      },
+      work: {
+        type: Sequelize.STRING,
+      },
+      agama: {
+        type: Sequelize.STRING,
+      },
+      rtrw: {
+        type: Sequelize.STRING,
+      },
+      dusun: {
+        type: Sequelize.STRING,
+      },
+      status: {
+        type: DataTypes.TINYINT,
+        defaultValue: 0, // Set the default value to 0 (for false)
+      },
+      fileName: {
+        type: DataTypes.STRING,
+        defaultValue: "",
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SuketBlmPunyaRumahs');
+    await queryInterface.dropTable('suketblmpunyarumah');
   }
 };

@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const path = require('path');
 
 const surveyController = require("../controllers/surveyControllers");
 const testingController = require("../controllers/testingController");
-const dokumenController = require('../controllers/dokumenControllers')
+const dokumenController = require('../controllers/dokumenControllers');
+const fileController = require('../controllers/fileController');
 
 //testing
 router.get('/test', testingController.coba);
@@ -84,5 +86,7 @@ router.get("/suketpengurusanpbb/all", dokumenController.getAllSuketPengurusanPBB
 //suketpengurusankk
 router.post('/suketpengurusankk/buat',dokumenController.insertSuketPengurusanKK);
 router.get("/suketpengurusankk/all", dokumenController.getAllSuketPengurusanKK);
+
+router.get('/download', fileController.downloadFile);
 
 module.exports = router;
