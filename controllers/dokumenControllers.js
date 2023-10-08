@@ -1,3 +1,4 @@
+const { log } = require("console");
 const {
   SpFromDesa,
   SuketWali,
@@ -155,6 +156,8 @@ exports.getAllSuketwali = async (req, res) => {
 exports.insertSuketBlmKtp = async (req, res) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuketBlmKtp.create(data);
     const pathTemplate = path.join(

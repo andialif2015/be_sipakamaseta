@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.NOW,
       },
       name: DataTypes.STRING,
+      nohp: DataTypes.STRING,
       nik: DataTypes.STRING,
       tempatL: DataTypes.STRING,
       tglL: DataTypes.STRING,
