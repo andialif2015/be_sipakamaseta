@@ -61,6 +61,8 @@ exports.generate = async(data, pathTemplate, jenis) => {
           dataForm = setDataSuketPengurusanPBB(data);
         }else if(jenis == 'suketpengurusankk'){
           dataForm = setDataSuketPengurusanKK(data);
+        }else if(jenis == 'imbs'){
+          dataForm = setDataImbs(data);
         }
 
 
@@ -431,5 +433,22 @@ function setDataSuketPengurusanKK(data){
     agama: data.agama,
     work: data.work,
     gender: data.gender,
+  }
+}
+
+function setDataImbs(data){
+  return {
+    name: data.name,
+    nohp: data.nohp,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
+    nik: data.nik,
+    gender: data.gender,
+    agama: data.agama,
+    work: data.pekerjaan,
+    alamat: data.alamat,
+    alamatB: data.alamatB,
+    type: data.type,
+    buildsize: data.buildsize,
   }
 }

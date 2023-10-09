@@ -1,4 +1,3 @@
-const { log } = require("console");
 const {
   SpFromDesa,
   SuketWali,
@@ -25,6 +24,7 @@ const {
   SuketPernyataanWaris,
   SuketPengurusanPBB,
   SuketPengurusanKK,
+  Imbs,
 } = require("../models");
 const docxTemplate = require("../utils/docxTemplater");
 const path = require("path");
@@ -61,7 +61,26 @@ exports.insertSpFromDesa = async (req, res) => {
 
     return res.status(200).json({
       status: true,
+      msg: "Berhasil",      
+    });
+  } catch (error) {
+    console.error("Error while inserting data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+      error: error.message
+    });
+  }
+};
+
+exports.getAllSpfromdesa = async (req, res) => {
+  try {
+    const data = await SpFromDesa.findAll();
+
+    return res.status(200).json({
+      status: true,
       msg: "Berhasil",
+      data: data,
     });
   } catch (error) {
     console.error("Error while inserting data:", error.message);
@@ -71,25 +90,6 @@ exports.insertSpFromDesa = async (req, res) => {
     });
   }
 };
-
-exports.getAllSpfromdesa = async (req, res) => {
-  try {
-
-    const data = await SpFromDesa.findAll();
-
-    return res.status(200).json({
-      status: true,
-      msg: "Berhasil",
-      data: data
-    });
-  } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
-  }
-}
 
 exports.insertSuketWali = async (req, res) => {
   try {
@@ -1599,9 +1599,46 @@ exports.getAllSuketPengurusanKK = async (req, res) => {
   }
 };
 
+exports.insertImbs = async (req, res) => {
+  try {
+    const data = req.body;
 
+    const respInsert = await Imbs.create(data);
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_imbs.docx"
+    );
+    const namaFile = await docxTemplate.generate(
+      data,
+      pathTemplate,
+      "imbs"
+    );
 
+    const respData = respInsert.toJSON();
 
+    await Imbs.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
 
-
-
+    return res.status(200).json({
+      status: true,
+      msg: "Berhasil",
+    });
+  } catch (error) {
+    console.error("Error while inserting data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+};

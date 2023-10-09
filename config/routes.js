@@ -60,7 +60,7 @@ router.get("/suketlahirdesa/all", dokumenController.getAllSuketLahirDesa);
 router.post('/suketlokasitanah/buat', dokumenController.insertSuketLokasiTanah);
 router.get("/suketlokasitanah/all", dokumenController.getAllSuketLokasiTanah);
 //suketmenantu
-router.post('/suketmenantu/data', dokumenController.insertSuketMenantu);
+router.post('/suketmenantu/buat', dokumenController.insertSuketMenantu);
 router.get("/suketmenantu/all", dokumenController.getAllSuketMenantu);
 //suketpendudukliar
 router.post('/suketpendudukliar/buat', dokumenController.insertSuketPendudukLiar);
@@ -86,6 +86,10 @@ router.get("/suketpengurusanpbb/all", dokumenController.getAllSuketPengurusanPBB
 //suketpengurusankk
 router.post('/suketpengurusankk/buat',dokumenController.insertSuketPengurusanKK);
 router.get("/suketpengurusankk/all", dokumenController.getAllSuketPengurusanKK);
+//imbs
+router.post('/imbs/buat',dokumenController.insertImbs);
+router.get("/imbs/all", dokumenController.getAll);
+
 
 router.get('/download', fileController.downloadFile);
 
