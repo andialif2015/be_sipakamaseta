@@ -88,7 +88,7 @@ router.post('/suketpengurusankk/buat',dokumenController.insertSuketPengurusanKK)
 router.get("/suketpengurusankk/all", dokumenController.getAllSuketPengurusanKK);
 //imbs
 router.post('/imbs/buat',dokumenController.insertImbs);
-router.get("/imbs/all", dokumenController.getAll);
+// router.get("/imbs/all", dokumenController.getAll);
 
 
 router.get('/download', fileController.downloadFile);
