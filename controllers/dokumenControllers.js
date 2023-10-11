@@ -1642,3 +1642,20 @@ exports.insertImbs = async (req, res) => {
     });
   }
 };
+
+exports.getAllImbs = async (req, res) => {
+  try {
+    const imbsData = await Imbs.findAll(); // Assuming you have an Imbs model defined
+
+    return res.status(200).json({
+      status: true,
+      data: imbsData, // Return the data retrieved from the database
+    });
+  } catch (error) {
+    console.error("Error while retrieving data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+};
