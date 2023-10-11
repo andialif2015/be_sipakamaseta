@@ -4,87 +4,87 @@ const PizZip = require("pizzip");
 const Docxtemplater = require("docxtemplater");
 
 
-exports.generate = async(data, pathTemplate, jenis) => {
-    try {
-        const templateContent = fs.readFileSync(pathTemplate, "binary");
-        const zip = new PizZip(templateContent);
-        const doc = new Docxtemplater(zip);
-        let dataForm = {};
-        
-        if (jenis == "spfromdesa") {
-            dataForm = setDataSPDesa(data);
-        }else if(jenis == 'suketwali'){
-            dataForm = setDataSuketWali(data);
-        }else if(jenis == 'suketblmktp'){
-            dataForm = setDataSuketBlmKtp(data);
-        }else if(jenis == 'suketblmpunyarumah'){
-          dataForm = setDataSuketBlmPunyaRumah(data);
-        }else if(jenis == 'sptodesa'){
-          dataForm = setDataSpToDesa(data);
-        }else if(jenis == 'superimunisasi'){
-          dataForm = setDataSuperImunisasi(data);
-        }else if(jenis == 'superutangpiutang'){
-          dataForm = setDataSuperUtangPiutang(data);
-        }else if(jenis == 'suketjabatan'){
-          dataForm = setDataSuketJabatan(data);
-        }else if(jenis == 'suketdomisili'){
-          dataForm = setDataSuketDomisili(data);
-        }else if(jenis == 'suketghoib'){
-          dataForm = setDataSuketGhoib(data);
-        }else if(jenis == 'suketkehilanganstpd'){
-          dataForm = setDataSuketKehilanganStpd(data);
-        }else if(jenis == 'suketkehilangankk'){
-          dataForm = setDataSuketKehilangankk(data);
-        }else if(jenis == 'suketkekerabatan'){
-          dataForm = setDataSuketKekerabatan(data);
-        }else if(jenis == 'suketlahirdesa'){
-          dataForm = setDataSuketLahirDesa(data);
-        }else if(jenis == 'suketlokasitanah'){
-          dataForm = setDataSuketLokasiTanah(data);
-        }else if(jenis == 'suketmenantu'){
-          dataForm = setDataSuketMenantu(data);
-        }else if(jenis == 'suketpendudukliar'){
-          dataForm = setDataSuketPendudukLiar(data);
-        }else if(jenis == 'suketpenegasanwil'){
-          dataForm = setDataSuketPenegasanWil(data);
-        }else if(jenis == 'suketaktifperusahaan'){
-          dataForm = setDataSuketAktifPerusahaan(data);
-        }else if(jenis == 'suketuntukmenikah'){
-          dataForm = setDataSuketUntukMenikah(data);
-        }else if(jenis == 'sukettelahmenikah'){
-          dataForm = setDataSuketTelahMenikah(data);
-        }else if(jenis == 'suketpisahrumah'){
-          dataForm = setDataSuketPisahRumah(data);
-        }else if(jenis == 'suketpernyataanwaris'){
-          dataForm = setDataSuketPernyataanWaris(data);
-        }else if(jenis == 'suketpengurusanpbb'){
-          dataForm = setDataSuketPengurusanPBB(data);
-        }else if(jenis == 'suketpengurusankk'){
-          dataForm = setDataSuketPengurusanKK(data);
-        }else if(jenis == 'imbs'){
-          dataForm = setDataImbs(data);
-        }
+exports.generate = async (data, pathTemplate, jenis) => {
+  try {
+    const templateContent = fs.readFileSync(pathTemplate, "binary");
+    const zip = new PizZip(templateContent);
+    const doc = new Docxtemplater(zip);
+    let dataForm = {};
 
-
-        doc.setData(dataForm);
-        doc.render();
-
-        const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-        const fileName = `output_${timestamp}.docx`;
-
-        const outputPath = path.join(__dirname,'..','public','dokumen',`${fileName}`);
-        const buffer = doc.getZip().generate({ type: "nodebuffer" });
-
-        fs.writeFileSync(outputPath, buffer); 
-
-        return fileName;
-
-    } catch (error) {
-        throw error
+    if (jenis == "spfromdesa") {
+      dataForm = setDataSPDesa(data);
+    } else if (jenis == 'suketwali') {
+      dataForm = setDataSuketWali(data);
+    } else if (jenis == 'suketblmktp') {
+      dataForm = setDataSuketBlmKtp(data);
+    } else if (jenis == 'suketblmpunyarumah') {
+      dataForm = setDataSuketBlmPunyaRumah(data);
+    } else if (jenis == 'sptodesa') {
+      dataForm = setDataSpToDesa(data);
+    } else if (jenis == 'superimunisasi') {
+      dataForm = setDataSuperImunisasi(data);
+    } else if (jenis == 'superutangpiutang') {
+      dataForm = setDataSuperUtangPiutang(data);
+    } else if (jenis == 'suketjabatan') {
+      dataForm = setDataSuketJabatan(data);
+    } else if (jenis == 'suketdomisili') {
+      dataForm = setDataSuketDomisili(data);
+    } else if (jenis == 'suketghoib') {
+      dataForm = setDataSuketGhoib(data);
+    } else if (jenis == 'suketkehilanganstpd') {
+      dataForm = setDataSuketKehilanganStpd(data);
+    } else if (jenis == 'suketkehilangankk') {
+      dataForm = setDataSuketKehilangankk(data);
+    } else if (jenis == 'suketkekerabatan') {
+      dataForm = setDataSuketKekerabatan(data);
+    } else if (jenis == 'suketlahirdesa') {
+      dataForm = setDataSuketLahirDesa(data);
+    } else if (jenis == 'suketlokasitanah') {
+      dataForm = setDataSuketLokasiTanah(data);
+    } else if (jenis == 'suketmenantu') {
+      dataForm = setDataSuketMenantu(data);
+    } else if (jenis == 'suketpendudukliar') {
+      dataForm = setDataSuketPendudukLiar(data);
+    } else if (jenis == 'suketpenegasanwil') {
+      dataForm = setDataSuketPenegasanWil(data);
+    } else if (jenis == 'suketaktifperusahaan') {
+      dataForm = setDataSuketAktifPerusahaan(data);
+    } else if (jenis == 'suketuntukmenikah') {
+      dataForm = setDataSuketUntukMenikah(data);
+    } else if (jenis == 'sukettelahmenikah') {
+      dataForm = setDataSuketTelahMenikah(data);
+    } else if (jenis == 'suketpisahrumah') {
+      dataForm = setDataSuketPisahRumah(data);
+    } else if (jenis == 'suketpernyataanwaris') {
+      dataForm = setDataSuketPernyataanWaris(data);
+    } else if (jenis == 'suketpengurusanpbb') {
+      dataForm = setDataSuketPengurusanPBB(data);
+    } else if (jenis == 'suketpengurusankk') {
+      dataForm = setDataSuketPengurusanKK(data);
+    } else if (jenis == 'imbs') {
+      dataForm = setDataImbs(data);
     }
+
+
+    doc.setData(dataForm);
+    doc.render();
+
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const fileName = `output_${timestamp}.docx`;
+
+    const outputPath = path.join(__dirname, '..', 'public', 'dokumen', `${fileName}`);
+    const buffer = doc.getZip().generate({ type: "nodebuffer" });
+
+    fs.writeFileSync(outputPath, buffer);
+
+    return fileName;
+
+  } catch (error) {
+    throw error
+  }
 }
 
-function setDataSPDesa(data){
+function setDataSPDesa(data) {
   return {
     name: data.name,
     tempatL: data.tempatL,
@@ -98,7 +98,7 @@ function setDataSPDesa(data){
   }
 }
 
-function setDataSuketWali(data){
+function setDataSuketWali(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -118,36 +118,36 @@ function setDataSuketWali(data){
   };
 }
 
-function setDataSuketBlmKtp(data){
+function setDataSuketBlmKtp(data) {
   return {
-      name: data.name,
-      nik: data.nik,
-      tempatL: data.tempatL,
-      tglL: data.tglL,
-      alamat: data.alamat,
-      dusun: data.dusun,
-      thnktp: data.tpktp,
+    name: data.name,
+    nik: data.nik,
+    tempatL: data.tempatL,
+    tglL: data.tglL,
+    alamat: data.alamat,
+    dusun: data.dusun,
+    thnktp: data.tpktp,
   }
 }
 
-function setDataSuketBlmPunyaRumah(data){
+function setDataSuketBlmPunyaRumah(data) {
   const parts = inputString.split("/");
   const rt = parts[0];
   const rw = parts[1];
   return {
-      name: data.name,
-      nik: data.nik,
-      alamat: data.alamat,
-      gender: data.gender,
-      work: data.work,
-      agama: data.agama,
-      rt: rt,
-      rw: rw,
-      dusun: data.dusun,
+    name: data.name,
+    nik: data.nik,
+    alamat: data.alamat,
+    gender: data.gender,
+    work: data.work,
+    agama: data.agama,
+    rt: rt,
+    rw: rw,
+    dusun: data.dusun,
   }
 }
 
-function setDataSpToDesa(data){
+function setDataSpToDesa(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -210,13 +210,15 @@ function setDataSuketJabatan(data) {
   };
 }
 function setDataSuketDomisili(data) {
+  console.log("templater");
+  console.log(data);
   return {
     name: data.name,
     tempatL: data.tempatL,
     tglL: data.tglL,
     gender: data.gender,
     agama: data.agama,
-    work: data.pekerjaan,
+    work: data.work,
     nik: data.nik,
     stsnkh: data.stsnkh,
     alamat: data.alamat,
@@ -275,7 +277,7 @@ function setDataSuketKehilangankk(data) {
   };
 }
 
-function setDataSuketKekerabatan(data){
+function setDataSuketKekerabatan(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -287,7 +289,7 @@ function setDataSuketKekerabatan(data){
   }
 }
 
-function setDataSuketLahirDesa(data){
+function setDataSuketLahirDesa(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -299,7 +301,7 @@ function setDataSuketLahirDesa(data){
   }
 }
 
-function setDataSuketLokasiTanah(data){
+function setDataSuketLokasiTanah(data) {
   return {
     namepemilik: data.namepemilik,
     alamattanah: data.alamattanah,
@@ -310,7 +312,7 @@ function setDataSuketLokasiTanah(data){
   }
 }
 
-function setDataSuketMenantu(data){
+function setDataSuketMenantu(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -323,7 +325,7 @@ function setDataSuketMenantu(data){
     alamatmertua: data.alamatmertua
   }
 }
-function setDataSuketPendudukLiar(data){
+function setDataSuketPendudukLiar(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -336,7 +338,7 @@ function setDataSuketPendudukLiar(data){
   }
 }
 
-function setDataSuketPenegasanWil(data){
+function setDataSuketPenegasanWil(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -345,21 +347,21 @@ function setDataSuketPenegasanWil(data){
   }
 }
 
-function setDataSuketAktifPerusahaan(data){
+function setDataSuketAktifPerusahaan(data) {
   return {
     namept: data.namept,
     nohp: data.nohp,
   }
 }
 
-function setDataSuketUntukMenikah(data){
+function setDataSuketUntukMenikah(data) {
   return {
     name: data.name,
     nohp: data.nohp,
   }
 }
 
-function setDataSuketTelahMenikah(data){
+function setDataSuketTelahMenikah(data) {
   return {
     namepria: data.namepria, //raka tes
     nohppria: data.nohppria, //kelihatan kah
@@ -380,7 +382,7 @@ function setDataSuketTelahMenikah(data){
   }
 }
 
-function setDataSuketPisahRumah(data){
+function setDataSuketPisahRumah(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -395,7 +397,7 @@ function setDataSuketPisahRumah(data){
   }
 }
 
-function setDataSuketPernyataanWaris(data){
+function setDataSuketPernyataanWaris(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -406,7 +408,7 @@ function setDataSuketPernyataanWaris(data){
   }
 }
 
-function setDataSuketPengurusanPBB(data){
+function setDataSuketPengurusanPBB(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -423,7 +425,7 @@ function setDataSuketPengurusanPBB(data){
   }
 }
 
-function setDataSuketPengurusanKK(data){
+function setDataSuketPengurusanKK(data) {
   return {
     name: data.name,
     nohp: data.nohp,
@@ -436,7 +438,7 @@ function setDataSuketPengurusanKK(data){
   }
 }
 
-function setDataImbs(data){
+function setDataImbs(data) {
   return {
     name: data.name,
     nohp: data.nohp,

@@ -61,7 +61,7 @@ exports.insertSpFromDesa = async (req, res) => {
 
     return res.status(200).json({
       status: true,
-      msg: "Berhasil",      
+      msg: "Berhasil",
     });
   } catch (error) {
     console.error("Error while inserting data:", error.message);
@@ -527,8 +527,6 @@ exports.getAllSuketJabatan = async (req, res) => {
 exports.insertSuketDomisili = async (req, res) => {
   try {
     const data = req.body;
-
-    console.log(data);
 
     const respInsert = await SuketDomisili.create(data);
     const pathTemplate = path.join(
