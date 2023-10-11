@@ -260,8 +260,8 @@ function setDataSuketKehilanganStpd(data) {
     tglLwali: data.tglwali,
     alamatwali: data.alamatwali,
     genderwali: data.genderwali,
-    agamawali: data.agamawali,
-    workwali: data.workwali,
+    nik: data.nik,
+    work: data.work,
   };
 }
 function setDataSuketKehilangankk(data) {
