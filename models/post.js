@@ -50,6 +50,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Post",
+      tableName: 'post',
+      timestamps: false,
     }
   );
   return Post;

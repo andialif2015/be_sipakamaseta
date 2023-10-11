@@ -4,7 +4,7 @@ const {
   SuketBlmKtp,
   SuketBlmPunyaRumah,
   SpToDesa,
-  SuperImunasasi,
+  SuperImunisasi,
   SuperUtangPiutang,
   SuketJabatan,
   SuketDomisili,
@@ -343,7 +343,7 @@ exports.insertSuperImunisasi = async (req, res) => {
     const data = req.body;
 
     console.log(data);
-    const respInsert = await SuperImunasasi.create(data);
+    const respInsert = await SuperImunisasi.create(data);
     const pathTemplate = path.join(
       __dirname,
       "..",
@@ -359,7 +359,7 @@ exports.insertSuperImunisasi = async (req, res) => {
 
     const respData = respInsert.toJSON();
 
-    await SuperImunasasi.update(
+    await SuperImunisasi.update(
       {
         fileName: namaFile,
       },
