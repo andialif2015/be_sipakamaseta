@@ -85,12 +85,13 @@ exports.generate = async (data, pathTemplate, jenis) => {
 }
 
 function setDataSPDesa(data) {
+  console.log(data);
   return {
     name: data.name,
     tempatL: data.tempatL,
     tglL: data.tglL,
     nik: data.nik,
-    warga: data.wargaN,
+    wargaN: data.wargaN,
     agama: data.agama,
     pekerjaan: data.work,
     alamat: data.alamat,
@@ -99,6 +100,7 @@ function setDataSPDesa(data) {
 }
 
 function setDataSuketWali(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
@@ -148,6 +150,7 @@ function setDataSuketBlmPunyaRumah(data) {
 }
 
 function setDataSpToDesa(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
@@ -165,6 +168,7 @@ function setDataSpToDesa(data) {
 }
 
 function setDataSuperImunisasi(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
@@ -178,9 +182,9 @@ function setDataSuperImunisasi(data) {
     tempatLwali: data.tempatLwali,
     tglLwali: data.tglwali,
     alamatwali: data.alamatwali,
-    genderwali: data.genderwali,
-    agamawali: data.agamawali,
-    workwali: data.workwali,
+    goldar: data.goldar,
+    wargaN: data.wargaN,
+    work: data.work,
   };
 }
 
@@ -350,6 +354,7 @@ function setDataSuketPenegasanWil(data) {
 }
 
 function setDataSuketAktifPerusahaan(data) {
+  console.log(data);
   return {
     namept: data.namept,
     nohp: data.nohp,
@@ -364,18 +369,19 @@ function setDataSuketUntukMenikah(data) {
 }
 
 function setDataSuketTelahMenikah(data) {
+  console.log(data);
   return {
     namepria: data.namepria, //raka tes
     nohppria: data.nohppria, //kelihatan kah
     tempatLpria: data.tempatLpria,
-    tglLpria: data.tglpria,
+    tglLpria: data.tglLpria,
     alamatpria: data.alamatpria,
     agamapria: data.agamapria,
     workpria: data.workpria,
     namewanita: data.namewanita,
     nohpwanita: data.nohpwanita,
     tempatLwanita: data.tempatLwanita,
-    tglLwanita: data.tglwanita,
+    tglLwanita: data.tglLwanita,
     alamatwanita: data.alamatwanita,
     agamawanita: data.agamawanita,
     workwanita: data.workwanita,
@@ -400,6 +406,7 @@ function setDataSuketPisahRumah(data) {
 }
 
 function setDataSuketPernyataanWaris(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
@@ -411,6 +418,7 @@ function setDataSuketPernyataanWaris(data) {
 }
 
 function setDataSuketPengurusanPBB(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
@@ -428,8 +436,10 @@ function setDataSuketPengurusanPBB(data) {
 }
 
 function setDataSuketPengurusanKK(data) {
+  console.log(data);
   return {
     name: data.name,
+    nik: data.nik,
     nohp: data.nohp,
     tempatL: data.tempatL,
     tglL: data.tglL,
@@ -441,6 +451,7 @@ function setDataSuketPengurusanKK(data) {
 }
 
 function setDataImbs(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
@@ -449,7 +460,7 @@ function setDataImbs(data) {
     nik: data.nik,
     gender: data.gender,
     agama: data.agama,
-    work: data.pekerjaan,
+    work: data.work,
     alamat: data.alamat,
     alamatB: data.alamatB,
     type: data.type,
