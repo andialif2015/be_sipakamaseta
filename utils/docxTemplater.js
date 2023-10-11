@@ -302,6 +302,7 @@ function setDataSuketLahirDesa(data) {
 }
 
 function setDataSuketLokasiTanah(data) {
+
   return {
     namepemilik: data.namepemilik,
     alamattanah: data.alamattanah,
@@ -313,15 +314,16 @@ function setDataSuketLokasiTanah(data) {
 }
 
 function setDataSuketMenantu(data) {
+  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
     tempatL: data.tempatL,
     tglL: data.tglL,
     alamat: data.alamat,
-    nameMertua: data.namemertua,
-    tempatLMertua: data.tempatLmertua,
-    tglLMertua: data.tglmertua,
+    nameMertua: data.nameMertua,
+    tempatLMertua: data.tempatLMertua,
+    tglLMertua: data.tglLMertua,
     alamatmertua: data.alamatmertua
   }
 }
