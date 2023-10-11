@@ -653,8 +653,6 @@ exports.insertSuketKehilanganStpd = async (req, res) => {
   try {
     const data = req.body;
 
-    console.log(data);
-
     const respInsert = await SuketKehilanganStpd.create(data);
     const pathTemplate = path.join(
       __dirname,
