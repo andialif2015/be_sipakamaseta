@@ -10,9 +10,9 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       createdAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
+        defaultValue: Sequelize.NOW,
       },
       name: {
         type: Sequelize.STRING,

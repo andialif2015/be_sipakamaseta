@@ -10,9 +10,9 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       createdAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
+        defaultValue: Sequelize.NOW,
       },
       namepemilik: {
         type: Sequelize.STRING,
@@ -33,11 +33,11 @@ module.exports = {
         type: Sequelize.STRING,
       },
       status: {
-        type: DataTypes.TINYINT,
+        type: Sequelize.TINYINT,
         defaultValue: 0, // Set the default value to 0 (for false)
       },
       fileName: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         defaultValue: "",
       },
     });

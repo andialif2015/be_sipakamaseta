@@ -4,34 +4,34 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Posts", {
       id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true, // Set as primary key
         autoIncrement: true, // Enable auto-increment
         unique: true,
       },
       title: {
-        type: DataTypes.STRING(255),
+        type: Sequelize.STRING(255),
         allowNull: false,
       },
       createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
         allowNull: false,
       },
       content: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       published: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
       kontak: {
-        type: DataTypes.STRING(50),
+        type: Sequelize.STRING(50),
         defaultValue: "0",
       },
       price: {
-        type: DataTypes.STRING(20),
+        type: Sequelize.STRING(20),
         defaultValue: "0",
       },
     });
