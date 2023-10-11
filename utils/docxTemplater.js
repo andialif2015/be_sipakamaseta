@@ -95,7 +95,7 @@ function setDataSPDesa(data) {
     agama: data.agama,
     pekerjaan: data.work,
     alamat: data.alamat,
-    for: data.for,
+    for: data.tujuan,
   }
 }
 
