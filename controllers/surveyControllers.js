@@ -1,21 +1,38 @@
 const { Survey } = require('../models');
 
-exports.buatSurvey = async(req,res) => {
-    try {
+exports.buatSurvey = async (req, res) => {
+  try {
 
-        const data = req.body;
+    const data = req.body;
 
-        await Survey.create(data);
-        
-        return res.status(200).json({
-          status: true,
-          msg: "Berhasil Buat Spd",
-        });
-    } catch (error) {
-        console.error("Error Message :", error.message);
-        return res.status(500).json({
-          status: false,
-          msg: "Internal Server Error",
-        });
-    }
+    await Survey.create(data);
+
+    return res.status(200).json({
+      status: true,
+      msg: "Berhasil Buat Spd",
+    });
+  } catch (error) {
+    console.error("Error Message :", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.getAllSurvey = async (req, res) => {
+  try {
+    const data = await Survey.findAll();
+    return res.status(200).json({
+      status: true,
+      msg: "Berhasil",
+      data: data,
+    });
+  } catch (error) {
+    console.error("Error while retrieving data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
 }

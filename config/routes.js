@@ -12,6 +12,7 @@ router.get('/test', testingController.coba);
 
 //survey
 router.post('/survey/buat', surveyController.buatSurvey);
+router.get('/survey/all', surveyController.getAllSurvey);
 
 //Dokumen
 //spformdesa
@@ -78,16 +79,16 @@ router.get("/sukettelahmenikah/all", dokumenController.getAllSuketTelahMenikah);
 router.post('/suketpisahrumah/buat', dokumenController.insertSuketPisahRumah);
 router.get("/suketpisahrumah/all", dokumenController.getAllSuketPisahRumah);
 //suketpernyataanwaris
-router.post('/suketpernyataanwaris/buat',dokumenController.insertSuketPernyataanWaris);
+router.post('/suketpernyataanwaris/buat', dokumenController.insertSuketPernyataanWaris);
 router.get("/suketpernyataanwaris/all", dokumenController.getAllSuketPernyataanWaris);
 //suketpengurusanpbb
-router.post('/suketpengurusanpbb/buat',dokumenController.insertSuketPengurusanPBB);
+router.post('/suketpengurusanpbb/buat', dokumenController.insertSuketPengurusanPBB);
 router.get("/suketpengurusanpbb/all", dokumenController.getAllSuketPengurusanPBB);
 //suketpengurusankk
-router.post('/suketpengurusankk/buat',dokumenController.insertSuketPengurusanKK);
+router.post('/suketpengurusankk/buat', dokumenController.insertSuketPengurusanKK);
 router.get("/suketpengurusankk/all", dokumenController.getAllSuketPengurusanKK);
 //imbs
-router.post('/imbs/buat',dokumenController.insertImbs);
+router.post('/imbs/buat', dokumenController.insertImbs);
 router.get("/imbs/all", dokumenController.getAllImbs);
 
 
