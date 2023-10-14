@@ -6,6 +6,7 @@ const surveyController = require("../controllers/surveyControllers");
 const testingController = require("../controllers/testingController");
 const dokumenController = require('../controllers/dokumenControllers');
 const fileController = require('../controllers/fileController');
+const storeController = require('../controllers/storeController');
 
 //testing
 router.get('/test', testingController.coba);
@@ -92,5 +93,10 @@ router.get("/imbs/all", dokumenController.getAllImbs);
 
 
 router.get('/download', fileController.downloadFile);
+
+//store
+router.post('/post/buat', storeController.insertPost);
+router.get('/post/all', storeController.getAllPosts);
+router.post("/post/delete/:id", storeController.deletePostById);
 
 module.exports = router;
