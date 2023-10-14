@@ -1,5 +1,6 @@
 node_modules/
 public/dokumen/
+public/post/
 .env
 .vscode/
 package-lock.

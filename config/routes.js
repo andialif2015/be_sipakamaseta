@@ -98,6 +98,8 @@ router.get('/download', fileController.downloadFile);
 //store
 router.post('/post/buat', storeController.insertPost);
 router.get('/post/all', storeController.getAllPosts);
-router.post("/post/delete/:id", storeController.deletePostById);
+router.delete("/post/delete/:id", storeController.deletePostById);
+router.put("/post/publish/:id", storeController.pubslishPost);
+router.put("/post/unpublish/:id", storeController.unPubslishPost);
 
 module.exports = router;
