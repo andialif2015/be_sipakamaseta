@@ -418,7 +418,6 @@ function setDataSuketPernyataanWaris(data) {
 }
 
 function setDataSuketPengurusanPBB(data) {
-  console.log(data);
   return {
     name: data.name,
     nohp: data.nohp,
