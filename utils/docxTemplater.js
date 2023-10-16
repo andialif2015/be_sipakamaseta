@@ -445,6 +445,7 @@ function setDataSuketPengurusanKK(data) {
     alamat: data.alamat,
     agama: data.agama,
     work: data.work,
+    nik: data.nik,
     gender: data.gender,
   }
 }

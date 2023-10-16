@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       alamat: DataTypes.STRING,
       agama: DataTypes.STRING,
       work: DataTypes.STRING,
+      nik: DataTypes.STRING,
       gender: DataTypes.STRING,
       status: {
         type: DataTypes.TINYINT,

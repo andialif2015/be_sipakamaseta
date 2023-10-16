@@ -35,6 +35,9 @@ module.exports = {
       work: {
         type: Sequelize.STRING,
       },
+      nik: {
+        type: Sequelize.STRING,
+      },
       gender: {
         type: Sequelize.STRING,
       },
