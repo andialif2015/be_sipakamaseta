@@ -91,6 +91,39 @@ exports.getAllSpfromdesa = async (req, res) => {
   }
 };
 
+exports.deleteSpfromdesa = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SpFromDesa', postId);
+
+    const result = await SpFromDesa.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketWali = async (req, res) => {
   try {
     const data = req.body;
@@ -154,6 +187,39 @@ exports.getAllSuketwali = async (req, res) => {
   }
 };
 
+exports.deleteSuketwali = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketWali', postId);
+
+    const result = await SuketWali.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketBlmKtp = async (req, res) => {
   try {
     const data = req.body;
@@ -216,6 +282,39 @@ exports.getAllSuketBlmKtp = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketBlmKtp = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketBlmKtp', postId);
+
+    const result = await SuketBlmKtp.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketBlmPunyaRumah = async (req, res) => {
   try {
@@ -339,6 +438,39 @@ exports.getAllSpToDesa = async (req, res) => {
   }
 };
 
+exports.deleteSpToDesa = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SpToDesa', postId);
+
+    const result = await SpToDesa.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuperImunisasi = async (req, res) => {
   try {
     const data = req.body;
@@ -401,6 +533,39 @@ exports.getAllSuperImunisasi = async (req, res) => {
   }
 };
 
+exports.deleteSuperImunisasi = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuperImunisasi', postId);
+
+    const result = await SuperImunisasi.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuperUtangPiutang = async (req, res) => {
   try {
     const data = req.body;
@@ -461,6 +626,39 @@ exports.getAllSuperUtangPiutang = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuperUtangPiutang = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuperUtangPiutang', postId);
+
+    const result = await SuperUtangPiutang.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketJabatan = async (req, res) => {
   try {
@@ -524,6 +722,37 @@ exports.getAllSuketJabatan = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketJabatan = async (req, res) => {
+  try {
+    const postId = req.params.id;
+
+    const result = await SuketJabatan.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketDomisili = async (req, res) => {
   try {
@@ -631,6 +860,39 @@ exports.insertSuketGhoib = async (req, res) => {
   }
 };
 
+exports.deleteSuketDomisili = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('post id', postId);
+
+    const result = await SuketDomisili.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.getAllSuketGhoib = async (req, res) => {
   try {
     const records = await SuketGhoib.findAll(); // Retrieve all records from the SuketGhoib table
@@ -712,6 +974,39 @@ exports.getAllSuketKehilanganStpd = async (req, res) => {
   }
 };
 
+exports.deleteSuketKehilanganStpd = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('post id', postId);
+
+    const result = await SuketKehilanganStpd.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketKehilanganKK = async (req, res) => {
   try {
     const data = req.body;
@@ -773,6 +1068,39 @@ exports.getAllSuketKehilanganKK = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketKehilanganKK = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('suketkk', postId);
+
+    const result = await SuketKehilanganKK.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketKekerabatan = async (req, res) => {
   try {
@@ -838,6 +1166,39 @@ exports.getAllSuketKekerabatan = async (req, res) => {
   }
 };
 
+exports.deleteSUketKekerabatan = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('suket kekerabatan', postId);
+
+    const result = await SuketKekerabatan.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketLahirDesa = async (req, res) => {
   try {
     const data = req.body;
@@ -899,6 +1260,39 @@ exports.getAllSuketLahirDesa = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketLahirDesa = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('suket Lahir Desa', postId);
+
+    const result = await SuketLahirDesa.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketLokasiTanah = async (req, res) => {
   try {
@@ -962,6 +1356,39 @@ exports.getAllSuketLokasiTanah = async (req, res) => {
   }
 };
 
+exports.deleteSuketLokasiTanah = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketLokasiTanah', postId);
+
+    const result = await SuketLokasiTanah.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketMenantu = async (req, res) => {
   try {
     const data = req.body;
@@ -1023,6 +1450,39 @@ exports.getAllSuketMenantu = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketMenantu = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketMenantu', postId);
+
+    const result = await SuketMenantu.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketPendudukLiar = async (req, res) => {
   try {
@@ -1086,6 +1546,39 @@ exports.getAllSuketPendudukLiar = async (req, res) => {
   }
 };
 
+exports.deleteSuketPendudukLiar = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketPendudukLiar', postId);
+
+    const result = await SuketPendudukLiar.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketPenegasanWil = async (req, res) => {
   try {
     const data = req.body;
@@ -1148,6 +1641,39 @@ exports.getAllSuketPenegasanWil = async (req, res) => {
   }
 };
 
+exports.deleteSuketPenegasanWil = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketPenegasanWil', postId);
+
+    const result = await SuketPenegasanWil.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketAktifPerusahaan = async (req, res) => {
   try {
     const data = req.body;
@@ -1209,6 +1735,39 @@ exports.getAllSuketAktifPerusahaan = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketAktifPerusahaan = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketAktifPerusahaan', postId);
+
+    const result = await SuketAktifPerusahaan.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketUntukMenikah = async (req, res) => {
   try {
@@ -1339,6 +1898,39 @@ exports.getAllSuketTelahMenikah = async (req, res) => {
   }
 };
 
+exports.deleteSuketTelahMenikah = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketTelahMenikah', postId);
+
+    const result = await SuketTelahMenikah.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketPisahRumah = async (req, res) => {
   try {
     const data = req.body;
@@ -1466,6 +2058,39 @@ exports.getAllSuketPernyataanWaris = async (req, res) => {
   }
 };
 
+exports.deleteSuketPernyataanWaris = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketPernyataanWaris', postId);
+
+    const result = await SuketPernyataanWaris.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketPengurusanPBB = async (req, res) => {
   try {
     const data = req.body;
@@ -1530,6 +2155,39 @@ exports.getAllSuketPengurusanPBB = async (req, res) => {
     });
   }
 };
+
+exports.deleteSuketPengurusanPBB = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('SuketPengurusanPBB', postId);
+
+    const result = await SuketPengurusanPBB.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketPengurusanKK = async (req, res) => {
   try {

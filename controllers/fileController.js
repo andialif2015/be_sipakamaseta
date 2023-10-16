@@ -53,16 +53,47 @@ exports.downloadFile = async (req, res) => {
 
       // update bahwa file telah di download
       if (form == "imbs") {
-        await Imbs.update(
-          {
-            status: 1,
-          },
-          {
-            where: {
-              fileName: file,
-            },
-          }
-        );
+        await Imbs.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "suketJabatan") {
+        await SuketJabatan.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "suketDomisili") {
+        await SuketDomisili.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketKehilanganStpd") {
+        await SuketKehilanganStpd.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketKehilanganKK") {
+        await SuketKehilanganKK.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketKekerabatan") {
+        await SuketKekerabatan.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketLahirDesa") {
+        await SuketLahirDesa.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketLokasiTanah") {
+        await SuketLokasiTanah.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketMenantu") {
+        await SuketMenantu.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketPendudukLiar") {
+        await SuketPendudukLiar.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketPenegasanWil") {
+        await SuketPenegasanWil.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketBlmKtp") {
+        await SuketBlmKtp.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketAktifPerusahaan") {
+        await SuketAktifPerusahaan.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuperUtangPiutang") {
+        await SuperUtangPiutang.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuperImunisasi") {
+        await SuperImunisasi.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SpFromDesa") {
+        await SpFromDesa.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SpToDesa") {
+        await SpToDesa.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketWali") {
+        await SuketWali.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketTelahMenikah") {
+        await SuketTelahMenikah.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketPernyataanWaris") {
+        await SuketPernyataanWaris.update({ status: 1 }, { where: { fileName: file } });
+      } else if (form == "SuketPengurusanPBB") {
+        await SuketPengurusanPBB.update({ status: 1 }, { where: { fileName: file } });
       }
 
       // Stream the file to the response
