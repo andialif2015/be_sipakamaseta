@@ -122,7 +122,7 @@ exports.insertSuketWali = async (req, res) => {
       }
     );
 
-    
+
     return res.status(200).json({
       status: true,
       msg: "Berhasil",
@@ -1656,3 +1656,36 @@ exports.getAllImbs = async (req, res) => {
     });
   }
 };
+
+exports.deleteImbs = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log('post id', postId);
+
+    const result = await Imbs.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}

@@ -91,6 +91,7 @@ router.get("/suketpengurusankk/all", dokumenController.getAllSuketPengurusanKK);
 //imbs
 router.post('/imbs/buat', dokumenController.insertImbs);
 router.get("/imbs/all", dokumenController.getAllImbs);
+router.delete("/imbs/delete/:id", dokumenController.deleteImbs);
 
 
 router.get('/download', fileController.downloadFile);
