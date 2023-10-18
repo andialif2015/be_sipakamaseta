@@ -3,7 +3,16 @@ const { Survey } = require('../models');
 exports.buatSurvey = async (req, res) => {
   try {
 
-    const data = req.body;
+    let data = req.body;
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        if(data[key] == 'true'){
+          data[key] = 1;
+        }else if(data[key] == 'false'){
+          data[key] = 0;
+        }
+      }
+    }
 
     await Survey.create(data);
 

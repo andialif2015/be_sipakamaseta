@@ -253,7 +253,7 @@ exports.insertSuketBlmPunyaRumah = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
+    console.error("Error while inserting data:", error.stack);
     return res.status(500).json({
       status: false,
       msg: "Internal Server Error",

@@ -133,7 +133,7 @@ function setDataSuketBlmKtp(data) {
 }
 
 function setDataSuketBlmPunyaRumah(data) {
-  const parts = inputString.split("/");
+  const parts = data.rtrw.split("/");
   const rt = parts[0];
   const rw = parts[1];
   return {
