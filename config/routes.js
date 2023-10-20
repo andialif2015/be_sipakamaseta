@@ -37,6 +37,11 @@ router.get(
   "/suketblmpunyarumah/all",
   dokumenController.getAllSuketBlmPunyaRumah
 );
+router.delete(
+  "/suketblmpunyarumah/delete/:id",
+  dokumenController.deleteSuketBlmPunyaRumah
+);
+
 //sptodesa
 router.post("/sptodesa/buat", dokumenController.insertSpToDesa);
 router.get("/sptodesa/all", dokumenController.getAllSpToDesa);
@@ -197,7 +202,13 @@ router.post(
   "/suketpengurusankk/buat",
   dokumenController.insertSuketPengurusanKK
 );
-router.get("/suketpengurusankk/all", dokumenController.getAllSuketPengurusanKK);
+router.get(
+  "/suketpengurusankk/all",
+  dokumenController.getAllSuketPengurusanKK);
+router.delete(
+  "/suketpengurusankk/delete/:id",
+  dokumenController.deleteSuketPengurusanKK
+);
 //imbs
 router.post("/imbs/buat", dokumenController.insertImbs);
 router.get("/imbs/all", dokumenController.getAllImbs);
