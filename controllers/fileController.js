@@ -128,6 +128,16 @@ exports.downloadFile = async (req, res) => {
           { status: 1 },
           { where: { fileName: file } }
         );
+      } else if (form == "SuketPengurusanKK") {
+        await SuketPengurusanKK.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
+      } else if (form == "SuketBlmPunyaRumah") {
+        await SuketBlmPunyaRumah.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
       }
 
       // Stream the file to the response

@@ -370,6 +370,37 @@ exports.getAllSuketBlmPunyaRumah = async (req, res) => {
   }
 };
 
+exports.deleteSuketBlmPunyaRumah = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log("SuketBlmPunyaRumah", postId);
+
+    const result = await SuketBlmPunyaRumah.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+};
+
 exports.insertSpToDesa = async (req, res) => {
   try {
     const data = req.body;
@@ -2153,6 +2184,8 @@ exports.insertSuketPengurusanKK = async (req, res) => {
   try {
     const data = req.body;
 
+    // console.log(data);
+    // return
     const respInsert = await SuketPengurusanKK.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -2161,6 +2194,7 @@ exports.insertSuketPengurusanKK = async (req, res) => {
       "templates",
       "temp_suketpengurusankk.docx"
     );
+
     const namaFile = await docxTemplate.generate(
       data,
       pathTemplate,
@@ -2207,6 +2241,37 @@ exports.getAllSuketPengurusanKK = async (req, res) => {
       "Error while fetching SuketPengurusanKK data:",
       error.message
     );
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+};
+
+exports.deleteSuketPengurusanKK = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log("SuketPengurusanKK", postId);
+
+    const result = await SuketPengurusanKK.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
     return res.status(500).json({
       status: false,
       msg: "Internal Server Error",
