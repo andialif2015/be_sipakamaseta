@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.NOW,
       },
       namepemilik: DataTypes.STRING,
+      nohp: DataTypes.STRING,
       alamattanah: DataTypes.STRING,
       luastanah: DataTypes.STRING,
       luasbangunan: DataTypes.STRING,
