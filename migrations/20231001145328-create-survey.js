@@ -12,23 +12,35 @@ module.exports = {
       id_survey: {
         type: Sequelize.INTEGER
       },
+      nama: {
+        type: Sequelize.STRING,
+      },
       rating: {
         type: Sequelize.INTEGER
       },
       kritik_saran: {
         type: Sequelize.TEXT
       },
+      praktis: {
+        type: Sequelize.STRING,
+      },
+      cepat: {
+        type: Sequelize.STRING,
+      },
+      informasi: {
+        type: Sequelize.STRING,
+      },
+      modern: {
+        type: Sequelize.STRING,
+      },
+      pelayanan: {
+        type: Sequelize.STRING,
+      },
       created_at: {
-        type: Sequelize.DATE
-      },
-      createdAt: {
+        type: Sequelize.DATE,
         allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: Sequelize.NOW,
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   async down(queryInterface, Sequelize) {
