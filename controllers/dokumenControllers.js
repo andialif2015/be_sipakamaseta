@@ -2377,27 +2377,27 @@ exports.insertSuratDomisiliLembaga = async (req, res) => {
     const data = req.body;
 
     const respInsert = await SuratDomisiliLembaga.create(data);
-    // const pathTemplate = path.join(
-    //   __dirname,
-    //   "..",
-    //   "public",
-    //   "templates",
-    //   "temp_imbs.docx"
-    // );
-    // const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_suratdomisililembaga.docx"
+    );
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
 
-    // const respData = respInsert.toJSON();
+    const respData = respInsert.toJSON();
 
-    // await Imbs.update(
-    //   {
-    //     fileName: namaFile,
-    //   },
-    //   {
-    //     where: {
-    //       id: respData.id,
-    //     },
-    //   }
-    // );
+    await SuratDomisiliLembaga.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
 
     return res.status(200).json({
       status: true,
@@ -2469,27 +2469,27 @@ exports.insertSuratUsaha = async (req, res) => {
     const data = req.body;
 
     const respInsert = await SuketUsaha.create(data);
-    // const pathTemplate = path.join(
-    //   __dirname,
-    //   "..",
-    //   "public",
-    //   "templates",
-    //   "temp_imbs.docx"
-    // );
-    // const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_suketusaha.docx"
+    );
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
 
-    // const respData = respInsert.toJSON();
+    const respData = respInsert.toJSON();
 
-    // await Imbs.update(
-    //   {
-    //     fileName: namaFile,
-    //   },
-    //   {
-    //     where: {
-    //       id: respData.id,
-    //     },
-    //   }
-    // );
+    await SuketUsaha.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
 
     return res.status(200).json({
       status: true,
@@ -2562,27 +2562,27 @@ exports.insertSuketBedaData = async (req, res) => {
     console.log(data);
 
     const respInsert = await SuketBedaData.create(data);
-    // const pathTemplate = path.join(
-    //   __dirname,
-    //   "..",
-    //   "public",
-    //   "templates",
-    //   "temp_imbs.docx"
-    // );
-    // const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_suketbedadata.docx"
+    );
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
 
-    // const respData = respInsert.toJSON();
+    const respData = respInsert.toJSON();
 
-    // await Imbs.update(
-    //   {
-    //     fileName: namaFile,
-    //   },
-    //   {
-    //     where: {
-    //       id: respData.id,
-    //     },
-    //   }
-    // );
+    await SuketBedaData.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
 
     return res.status(200).json({
       status: true,
@@ -2655,27 +2655,27 @@ exports.insertSuketCatatanKepolisian = async (req, res) => {
     console.log(data);
 
     const respInsert = await SuketCatatanKepolisian.create(data);
-    // const pathTemplate = path.join(
-    //   __dirname,
-    //   "..",
-    //   "public",
-    //   "templates",
-    //   "temp_imbs.docx"
-    // );
-    // const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_suketcatatankepolisian.docx"
+    );
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
 
-    // const respData = respInsert.toJSON();
+    const respData = respInsert.toJSON();
 
-    // await Imbs.update(
-    //   {
-    //     fileName: namaFile,
-    //   },
-    //   {
-    //     where: {
-    //       id: respData.id,
-    //     },
-    //   }
-    // );
+    await SuketCatatanKepolisian.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
 
     return res.status(200).json({
       status: true,
@@ -2748,27 +2748,27 @@ exports.insertSuketKematian = async (req, res) => {
     console.log(data);
 
     const respInsert = await SuketKematian.create(data);
-    // const pathTemplate = path.join(
-    //   __dirname,
-    //   "..",
-    //   "public",
-    //   "templates",
-    //   "temp_imbs.docx"
-    // );
-    // const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const pathTemplate = path.join(
+      __dirname,
+      "..",
+      "public",
+      "templates",
+      "temp_suketkematian.docx"
+    );
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
 
-    // const respData = respInsert.toJSON();
+    const respData = respInsert.toJSON();
 
-    // await Imbs.update(
-    //   {
-    //     fileName: namaFile,
-    //   },
-    //   {
-    //     where: {
-    //       id: respData.id,
-    //     },
-    //   }
-    // );
+    await SuketKematian.update(
+      {
+        fileName: namaFile,
+      },
+      {
+        where: {
+          id: respData.id,
+        },
+      }
+    );
 
     return res.status(200).json({
       status: true,
