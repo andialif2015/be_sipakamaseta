@@ -2477,7 +2477,7 @@ exports.insertSuratUsaha = async (req, res) => {
       "templates",
       "temp_suketusaha.docx"
     );
-    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "SuketUsaha");
 
     const respData = respInsert.toJSON();
 

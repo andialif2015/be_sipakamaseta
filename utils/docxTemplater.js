@@ -64,7 +64,9 @@ exports.generate = async (data, pathTemplate, jenis) => {
     } else if (jenis == 'imbs') {
       dataForm = setDataImbs(data);
     } else if (jenis == 'suratdomisililembaga') {
-      dataForm = setSuratDomisiliLembaga(data)
+      dataForm = setSuratDomisiliLembaga(data);
+    } else if (jenis == 'SuketUsaha') {
+      dataForm = setSuketUsaha(data);
     }
 
 
@@ -483,4 +485,8 @@ function setSuratDomisiliLembaga(data) {
     statusValue: data.statusValue,
     fileName: data.fileName
   }
+}
+
+function setSuketUsaha(data) {
+  return data
 }
