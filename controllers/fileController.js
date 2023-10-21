@@ -170,8 +170,6 @@ exports.downloadFile = async (req, res) => {
         );
       }
 
-      // SuketKematian
-
       // Stream the file to the response
       const fileStream = fs.createReadStream(pathFile);
       fileStream.pipe(res);
