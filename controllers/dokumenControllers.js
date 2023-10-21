@@ -2416,7 +2416,7 @@ exports.getAllSuratDomisiliLembaga = async (req, res) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuratDomisiliLembaga.findAll();
-
+    console.log(data);
     return res.status(200).json({
       status: true,
       data: data,
@@ -2434,10 +2434,34 @@ exports.getAllSuratDomisiliLembaga = async (req, res) => {
 }
 
 exports.deleteSuratDomisiliLembaga = async (req, res) => {
-  return res.status(200).json({
-    status: true,
-    msg: "Berhasil",
-  });
+  try {
+    const postId = req.params.id;
+    console.log("SuratDomisiliLembaga", postId);
+
+    const result = await SuratDomisiliLembaga.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
 }
 
 exports.insertSuratUsaha = async (req, res) => {
@@ -2480,7 +2504,57 @@ exports.insertSuratUsaha = async (req, res) => {
   }
 }
 
+exports.getAllSuratUsaha = async (req, res) => {
+  try {
+    // Fetch all records from SuketPengurusanKK table
+    const data = await SuketUsaha.findAll();
 
+    return res.status(200).json({
+      status: true,
+      data: data,
+    });
+  } catch (error) {
+    console.error(
+      "Error while fetching SuketUsaha data:",
+      error.message
+    );
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.deleteSuratUsaha = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log("SuketUsaha", postId);
+
+    const result = await SuketUsaha.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
 
 exports.insertSuketBedaData = async (req, res) => {
   try {
@@ -2516,6 +2590,58 @@ exports.insertSuketBedaData = async (req, res) => {
     });
   } catch (error) {
     console.error("Error while inserting data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.getAllSuketBedaData = async (req, res) => {
+  try {
+    // Fetch all records from SuketPengurusanKK table
+    const data = await SuketBedaData.findAll();
+
+    return res.status(200).json({
+      status: true,
+      data: data,
+    });
+  } catch (error) {
+    console.error(
+      "Error while fetching SuketUsaha data:",
+      error.message
+    );
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.deleteSuketBedaData = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log("SuketUsaha", postId);
+
+    const result = await SuketBedaData.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
     return res.status(500).json({
       status: false,
       msg: "Internal Server Error",
@@ -2564,6 +2690,58 @@ exports.insertSuketCatatanKepolisian = async (req, res) => {
   }
 }
 
+exports.getAllSuketCatatanKepolisian = async (req, res) => {
+  try {
+    // Fetch all records from SuketPengurusanKK table
+    const data = await SuketCatatanKepolisian.findAll();
+
+    return res.status(200).json({
+      status: true,
+      data: data,
+    });
+  } catch (error) {
+    console.error(
+      "Error while fetching SuketCatatanKepolisian data:",
+      error.message
+    );
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.deleteSuketCatatanKepolisian = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log("SuketCatatanKepolisian", postId);
+
+    const result = await SuketCatatanKepolisian.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
 exports.insertSuketKematian = async (req, res) => {
   try {
     const data = req.body;
@@ -2598,6 +2776,58 @@ exports.insertSuketKematian = async (req, res) => {
     });
   } catch (error) {
     console.error("Error while inserting data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.getAllSuketKematian = async (req, res) => {
+  try {
+    // Fetch all records from SuketPengurusanKK table
+    const data = await SuketKematian.findAll();
+
+    return res.status(200).json({
+      status: true,
+      data: data,
+    });
+  } catch (error) {
+    console.error(
+      "Error while fetching SuketCatatanKepolisian data:",
+      error.message
+    );
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.deleteSuketKematian = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log("SuketKematian", postId);
+
+    const result = await SuketKematian.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    console.error("Message : ", error.stack);
     return res.status(500).json({
       status: false,
       msg: "Internal Server Error",

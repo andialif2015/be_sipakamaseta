@@ -28,6 +28,14 @@ module.exports = {
         type: Sequelize.TINYINT,
         defaultValue: 0,
       },
+      status: {
+        type: Sequelize.TINYINT,
+        defaultValue: 0,
+      },
+      fileName: {
+        type: Sequelize.STRING,
+        defaultValue: "",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
