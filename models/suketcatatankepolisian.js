@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     work: DataTypes.STRING,
     nik: DataTypes.STRING,
     alamat: DataTypes.STRING,
+    tujuan: DataTypes.STRING,
     status: {
       type: DataTypes.TINYINT,
       defaultValue: 0,

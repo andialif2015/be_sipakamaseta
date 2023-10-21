@@ -36,6 +36,9 @@ module.exports = {
       alamat: {
         type: Sequelize.STRING
       },
+      tujuan: {
+        type: Sequelize.STRING
+      },
       status: {
         type: Sequelize.TINYINT,
         defaultValue: 0,
