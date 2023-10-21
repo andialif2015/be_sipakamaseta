@@ -22,6 +22,14 @@ module.exports = (sequelize, DataTypes) => {
     alamatMeninggal: DataTypes.STRING,
     tempatDikebumikan: DataTypes.STRING,
     tanggalDikebumikan: DataTypes.STRING,
+    status: {
+      type: DataTypes.TINYINT,
+      defaultValue: 0,
+    },
+    fileName: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
   }, {
     sequelize,
     modelName: 'SuketKematian',

@@ -22,6 +22,14 @@ module.exports = (sequelize, DataTypes) => {
     luastanah: DataTypes.STRING,
     luasbangunan: DataTypes.STRING,
     dusun: DataTypes.STRING,
+    status: {
+      type: DataTypes.TINYINT,
+      defaultValue: 0,
+    },
+    fileName: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
   }, {
     sequelize,
     modelName: 'SuratDomisiliLembaga',

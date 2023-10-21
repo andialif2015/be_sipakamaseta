@@ -19,6 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     namaBenar: DataTypes.STRING,
     tanggalLahirBenar: DataTypes.STRING,
     nohp: DataTypes.STRING,
+    status: {
+      type: DataTypes.TINYINT,
+      defaultValue: 0,
+    },
+    fileName: {
+      type: DataTypes.STRING,
+      defaultValue: "",
+    },
   }, {
     sequelize,
     modelName: 'SuketBedaData',
