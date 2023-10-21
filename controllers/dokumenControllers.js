@@ -2570,7 +2570,7 @@ exports.insertSuketBedaData = async (req, res) => {
       "templates",
       "temp_suketbedadata.docx"
     );
-    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "SuketBedaData");
 
     const respData = respInsert.toJSON();
 

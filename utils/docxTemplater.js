@@ -67,6 +67,8 @@ exports.generate = async (data, pathTemplate, jenis) => {
       dataForm = setSuratDomisiliLembaga(data);
     } else if (jenis == 'SuketUsaha') {
       dataForm = setSuketUsaha(data);
+    } else if (jenis == 'SuketBedaData') {
+      dataForm = setSuketBedaData(data);
     }
 
 
@@ -488,5 +490,9 @@ function setSuratDomisiliLembaga(data) {
 }
 
 function setSuketUsaha(data) {
-  return data
+  return data;
+}
+
+function setSuketBedaData(data) {
+  return data;
 }
