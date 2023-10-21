@@ -2,54 +2,55 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SuratDomisiliLembagas', {
+    await queryInterface.createTable('SuketCatatanKepolisians', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nalemb: {
+      name: {
         type: Sequelize.STRING
       },
       nohp: {
         type: Sequelize.STRING
       },
+      tempatL: {
+        type: Sequelize.STRING
+      },
+      tglL: {
+        type: Sequelize.STRING
+      },
+      gender: {
+        type: Sequelize.STRING
+      },
+      agama: {
+        type: Sequelize.STRING
+      },
+      work: {
+        type: Sequelize.STRING
+      },
+      nik: {
+        type: Sequelize.STRING
+      },
       alamat: {
         type: Sequelize.STRING
       },
-      tempatberdiri: {
-        type: Sequelize.STRING
-      },
-      tglberdiri: {
-        type: Sequelize.STRING
-      },
-      luastanah: {
-        type: Sequelize.STRING
-      },
-      luasbangunan: {
-        type: Sequelize.STRING
-      },
-      dusun: {
-        type: Sequelize.STRING
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       status: {
         type: Sequelize.TINYINT,
         defaultValue: 0,
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
-      },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SuratDomisiliLembagas');
+    await queryInterface.dropTable('SuketCatatanKepolisians');
   }
 };

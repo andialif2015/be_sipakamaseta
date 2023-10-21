@@ -2,35 +2,26 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SuratDomisiliLembagas', {
+    await queryInterface.createTable('SuketBedaData', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nalemb: {
+      namaSalah: {
+        type: Sequelize.STRING
+      },
+      tanggalLahirSalah: {
+        type: Sequelize.STRING
+      },
+      namaBenar: {
+        type: Sequelize.STRING
+      },
+      tanggalLahirBenar: {
         type: Sequelize.STRING
       },
       nohp: {
-        type: Sequelize.STRING
-      },
-      alamat: {
-        type: Sequelize.STRING
-      },
-      tempatberdiri: {
-        type: Sequelize.STRING
-      },
-      tglberdiri: {
-        type: Sequelize.STRING
-      },
-      luastanah: {
-        type: Sequelize.STRING
-      },
-      luasbangunan: {
-        type: Sequelize.STRING
-      },
-      dusun: {
         type: Sequelize.STRING
       },
       status: {
@@ -39,17 +30,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SuratDomisiliLembagas');
+    await queryInterface.dropTable('SuketBedaData');
   }
 };
