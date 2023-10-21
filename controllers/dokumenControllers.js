@@ -25,6 +25,7 @@ const {
   SuketPengurusanPBB,
   SuketPengurusanKK,
   Imbs,
+  SuratDomisiliLembaga,
 } = require("../models");
 const docxTemplate = require("../utils/docxTemplater");
 const path = require("path");
@@ -2366,3 +2367,56 @@ exports.deleteImbs = async (req, res) => {
     });
   }
 };
+
+exports.insertSuratDomisiliLembaga = async (req, res) => {
+  try {
+    const data = req.body;
+
+    const respInsert = await SuratDomisiliLembaga.create(data);
+    // const pathTemplate = path.join(
+    //   __dirname,
+    //   "..",
+    //   "public",
+    //   "templates",
+    //   "temp_imbs.docx"
+    // );
+    // const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+
+    // const respData = respInsert.toJSON();
+
+    // await Imbs.update(
+    //   {
+    //     fileName: namaFile,
+    //   },
+    //   {
+    //     where: {
+    //       id: respData.id,
+    //     },
+    //   }
+    // );
+
+    return res.status(200).json({
+      status: true,
+      msg: "Berhasil",
+    });
+  } catch (error) {
+    console.error("Error while inserting data:", error.message);
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
+}
+
+exports.getAllSuratDomisiliLembaga = async (req, res) => {
+  return res.status(200).json({
+    status: true,
+    msg: "Berhasil",
+  });
+}
+exports.deleteSuratDomisiliLembaga = async (req, res) => {
+  return res.status(200).json({
+    status: true,
+    msg: "Berhasil",
+  });
+}

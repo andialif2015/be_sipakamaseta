@@ -223,4 +223,9 @@ router.delete("/post/delete/:id", storeController.deletePostById);
 router.put("/post/publish/:id", storeController.pubslishPost);
 router.put("/post/unpublish/:id", storeController.unPubslishPost);
 
+// suratdomisililembaga
+router.post("/suratdomisililembaga/buat", dokumenController.insertSuratDomisiliLembaga);
+router.get("/suratdomisililembaga/all", dokumenController.getAllSuratDomisiliLembaga);
+router.delete("/suratdomisililembaga/delete/:id", dokumenController.deleteSuratDomisiliLembaga);
+
 module.exports = router;
