@@ -2756,7 +2756,7 @@ exports.insertSuketKematian = async (req, res) => {
       "templates",
       "temp_suketkematian.docx"
     );
-    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "SuketKematian");
 
     const respData = respInsert.toJSON();
 
