@@ -2663,7 +2663,7 @@ exports.insertSuketCatatanKepolisian = async (req, res) => {
       "templates",
       "temp_suketcatatankepolisian.docx"
     );
-    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "SuketCatatanKepolisian");
 
     const respData = respInsert.toJSON();
 

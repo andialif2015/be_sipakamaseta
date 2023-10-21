@@ -69,6 +69,8 @@ exports.generate = async (data, pathTemplate, jenis) => {
       dataForm = setSuketUsaha(data);
     } else if (jenis == 'SuketBedaData') {
       dataForm = setSuketBedaData(data);
+    } else if (jenis == 'SuketCatatanKepolisian') {
+      dataForm = setSuketCatatanKepolisian(data);
     }
 
 
@@ -494,5 +496,9 @@ function setSuketUsaha(data) {
 }
 
 function setSuketBedaData(data) {
+  return data;
+}
+
+function setSuketCatatanKepolisian(data) {
   return data;
 }
