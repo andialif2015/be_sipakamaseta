@@ -2376,6 +2376,7 @@ exports.insertSuratDomisiliLembaga = async (req, res) => {
   try {
     const data = req.body;
 
+    console.log(data);
     const respInsert = await SuratDomisiliLembaga.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -2384,7 +2385,7 @@ exports.insertSuratDomisiliLembaga = async (req, res) => {
       "templates",
       "temp_suratdomisililembaga.docx"
     );
-    const namaFile = await docxTemplate.generate(data, pathTemplate, "imbs");
+    const namaFile = await docxTemplate.generate(data, pathTemplate, "suratdomisililembaga");
 
     const respData = respInsert.toJSON();
 
@@ -2416,7 +2417,7 @@ exports.getAllSuratDomisiliLembaga = async (req, res) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuratDomisiliLembaga.findAll();
-    console.log(data);
+
     return res.status(200).json({
       status: true,
       data: data,

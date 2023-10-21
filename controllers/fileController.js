@@ -25,6 +25,11 @@ const {
   SuketPengurusanPBB,
   SuketPengurusanKK,
   Imbs,
+  SuratDomisiliLembaga,
+  SuketUsaha,
+  SuketBedaData,
+  SuketCatatanKepolisian,
+  SuketKematian
 } = require("../models");
 
 const path = require("path");
@@ -138,7 +143,34 @@ exports.downloadFile = async (req, res) => {
           { status: 1 },
           { where: { fileName: file } }
         );
+      } else if (form == "SuratDomisiliLembaga") {
+        await SuratDomisiliLembaga.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
+      } else if (form == "SuketUsaha") {
+        await SuketUsaha.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
+      } else if (form == "SuketBedaData") {
+        await SuketBedaData.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
+      } else if (form == "SuketCatatanKepolisian") {
+        await SuketCatatanKepolisian.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
+      } else if (form == "SuketKematian") {
+        await SuketKematian.update(
+          { status: 1 },
+          { where: { fileName: file } }
+        );
       }
+
+      // SuketKematian
 
       // Stream the file to the response
       const fileStream = fs.createReadStream(pathFile);
@@ -151,7 +183,7 @@ exports.downloadFile = async (req, res) => {
     }
   } catch (error) {
     console.error(
-      "Error while fetching SuketPengurusanKK data:",
+      "Error while fetching data:",
       error.message
     );
     return res.status(500).json({
