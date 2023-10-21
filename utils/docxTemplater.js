@@ -63,6 +63,8 @@ exports.generate = async (data, pathTemplate, jenis) => {
       dataForm = setDataSuketPengurusanKK(data);
     } else if (jenis == 'imbs') {
       dataForm = setDataImbs(data);
+    } else if (jenis == 'suratdomisililembaga') {
+      dataForm = setSuratDomisiliLembaga(data)
     }
 
 
@@ -465,5 +467,20 @@ function setDataImbs(data) {
     alamatB: data.alamatB,
     type: data.type,
     buildsize: data.buildsize,
+  }
+}
+
+function setSuratDomisiliLembaga(data) {
+  return {
+    nalemb: data.nalemb,
+    nohp: data.nohp,
+    alamat: data.alamat,
+    tempatberdiri: data.tempatberdiri,
+    tglberdiri: data.tglberdiri,
+    luastanah: data.luastanah,
+    luasbangunan: data.luasbangunan,
+    dusun: data.dusun,
+    statusValue: data.statusValue,
+    fileName: data.fileName
   }
 }
