@@ -226,6 +226,10 @@ router.put("/post/unpublish/:id", storeController.unPubslishPost);
 // suratdomisililembaga
 router.post("/suratdomisililembaga/buat", dokumenController.insertSuratDomisiliLembaga);
 router.get("/suratdomisililembaga/all", dokumenController.getAllSuratDomisiliLembaga);
-router.delete("/suratdomisililembaga/delete/:id", dokumenController.deleteSuratDomisiliLembaga);
+// router.delete("/suratdomisililembaga/delete/:id", dokumenController.deleteSuratDomisiliLembaga);
+
+// suketusaha
+router.post("/suketusaha/buat", dokumenController.insertSuratUsaha);
+
 
 module.exports = router;

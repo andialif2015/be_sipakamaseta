@@ -2409,11 +2409,26 @@ exports.insertSuratDomisiliLembaga = async (req, res) => {
 }
 
 exports.getAllSuratDomisiliLembaga = async (req, res) => {
-  return res.status(200).json({
-    status: true,
-    msg: "Berhasil",
-  });
+  try {
+    // Fetch all records from SuketPengurusanKK table
+    const data = await SuratDomisiliLembaga.findAll();
+
+    return res.status(200).json({
+      status: true,
+      data: data,
+    });
+  } catch (error) {
+    console.error(
+      "Error while fetching SuketPengurusanKK data:",
+      error.message
+    );
+    return res.status(500).json({
+      status: false,
+      msg: "Internal Server Error",
+    });
+  }
 }
+
 exports.deleteSuratDomisiliLembaga = async (req, res) => {
   return res.status(200).json({
     status: true,
