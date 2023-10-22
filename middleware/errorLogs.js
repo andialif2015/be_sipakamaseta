@@ -22,10 +22,10 @@ const errorMiddleware = (err, req, res, next) => {
     });
 
     // Log the error
-    logger.error(err);
+    logger.error(err.stack);
   } else {
     // Create a winston logger for error logging in production
-    console.error(err);
+    console.error(err.stack);
   }
 
   // Customize the error response
