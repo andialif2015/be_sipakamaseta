@@ -34,7 +34,7 @@ const {
 const docxTemplate = require("../utils/docxTemplater");
 const path = require("path");
 
-exports.insertSpFromDesa = async (req, res) => {
+exports.insertSpFromDesa = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -69,16 +69,11 @@ exports.insertSpFromDesa = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-      error: error.message,
-    });
+    next(error);
   }
 };
 
-exports.getAllSpfromdesa = async (req, res) => {
+exports.getAllSpfromdesa = async (req, res, next) => {
   try {
     const data = await SpFromDesa.findAll();
 
@@ -88,15 +83,11 @@ exports.getAllSpfromdesa = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSpfromdesa = async (req, res) => {
+exports.deleteSpfromdesa = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SpFromDesa", postId);
@@ -119,15 +110,11 @@ exports.deleteSpfromdesa = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketWali = async (req, res) => {
+exports.insertSuketWali = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -163,15 +150,11 @@ exports.insertSuketWali = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketwali = async (req, res) => {
+exports.getAllSuketwali = async (req, res, next) => {
   try {
     const data = await SuketWali.findAll();
 
@@ -181,15 +164,11 @@ exports.getAllSuketwali = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketwali = async (req, res) => {
+exports.deleteSuketwali = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketWali", postId);
@@ -212,15 +191,11 @@ exports.deleteSuketwali = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketBlmKtp = async (req, res) => {
+exports.insertSuketBlmKtp = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -258,15 +233,11 @@ exports.insertSuketBlmKtp = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketBlmKtp = async (req, res) => {
+exports.getAllSuketBlmKtp = async (req, res, next) => {
   try {
     const records = await SuketBlmKtp.findAll(); // Retrieve all records from the SuketBlmKtp table
 
@@ -275,15 +246,11 @@ exports.getAllSuketBlmKtp = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketBlmKtp = async (req, res) => {
+exports.deleteSuketBlmKtp = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketBlmKtp", postId);
@@ -306,15 +273,11 @@ exports.deleteSuketBlmKtp = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketBlmPunyaRumah = async (req, res) => {
+exports.insertSuketBlmPunyaRumah = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -350,15 +313,11 @@ exports.insertSuketBlmPunyaRumah = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketBlmPunyaRumah = async (req, res) => {
+exports.getAllSuketBlmPunyaRumah = async (req, res, next) => {
   try {
     const records = await SuketBlmPunyaRumah.findAll(); // Retrieve all records from the SuketBlmPunyaRumah table
 
@@ -367,15 +326,11 @@ exports.getAllSuketBlmPunyaRumah = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketBlmPunyaRumah = async (req, res) => {
+exports.deleteSuketBlmPunyaRumah = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketBlmPunyaRumah", postId);
@@ -398,15 +353,11 @@ exports.deleteSuketBlmPunyaRumah = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSpToDesa = async (req, res) => {
+exports.insertSpToDesa = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -442,15 +393,11 @@ exports.insertSpToDesa = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSpToDesa = async (req, res) => {
+exports.getAllSpToDesa = async (req, res, next) => {
   try {
     const records = await SpToDesa.findAll(); // Retrieve all records from the SpToDesa table
 
@@ -459,15 +406,11 @@ exports.getAllSpToDesa = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSpToDesa = async (req, res) => {
+exports.deleteSpToDesa = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SpToDesa", postId);
@@ -490,15 +433,11 @@ exports.deleteSpToDesa = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuperImunisasi = async (req, res) => {
+exports.insertSuperImunisasi = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -535,15 +474,11 @@ exports.insertSuperImunisasi = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuperImunisasi = async (req, res) => {
+exports.getAllSuperImunisasi = async (req, res, next) => {
   try {
     const records = await SuperImunisasi.findAll(); // Retrieve all records from the SuperImunisasi table
 
@@ -552,15 +487,11 @@ exports.getAllSuperImunisasi = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuperImunisasi = async (req, res) => {
+exports.deleteSuperImunisasi = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuperImunisasi", postId);
@@ -583,15 +514,11 @@ exports.deleteSuperImunisasi = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuperUtangPiutang = async (req, res) => {
+exports.insertSuperUtangPiutang = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -627,15 +554,11 @@ exports.insertSuperUtangPiutang = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuperUtangPiutang = async (req, res) => {
+exports.getAllSuperUtangPiutang = async (req, res, next) => {
   try {
     const records = await SuperUtangPiutang.findAll(); // Retrieve all records from the SuperUtangPiutang table
 
@@ -644,15 +567,11 @@ exports.getAllSuperUtangPiutang = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuperUtangPiutang = async (req, res) => {
+exports.deleteSuperUtangPiutang = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuperUtangPiutang", postId);
@@ -675,15 +594,11 @@ exports.deleteSuperUtangPiutang = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketJabatan = async (req, res) => {
+exports.insertSuketJabatan = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -721,15 +636,11 @@ exports.insertSuketJabatan = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketJabatan = async (req, res) => {
+exports.getAllSuketJabatan = async (req, res, next) => {
   try {
     const records = await SuketJabatan.findAll(); // Retrieve all records from the SuketJabatan table
 
@@ -738,15 +649,11 @@ exports.getAllSuketJabatan = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketJabatan = async (req, res) => {
+exports.deleteSuketJabatan = async (req, res, next) => {
   try {
     const postId = req.params.id;
 
@@ -768,15 +675,11 @@ exports.deleteSuketJabatan = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketDomisili = async (req, res) => {
+exports.insertSuketDomisili = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -812,15 +715,11 @@ exports.insertSuketDomisili = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketDomisili = async (req, res) => {
+exports.getAllSuketDomisili = async (req, res, next) => {
   try {
     const records = await SuketDomisili.findAll(); // Retrieve all records from the SuketDomisili table
 
@@ -829,15 +728,11 @@ exports.getAllSuketDomisili = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketGhoib = async (req, res) => {
+exports.insertSuketGhoib = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -874,15 +769,11 @@ exports.insertSuketGhoib = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketDomisili = async (req, res) => {
+exports.deleteSuketDomisili = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("post id", postId);
@@ -905,15 +796,11 @@ exports.deleteSuketDomisili = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketGhoib = async (req, res) => {
+exports.getAllSuketGhoib = async (req, res, next) => {
   try {
     const records = await SuketGhoib.findAll(); // Retrieve all records from the SuketGhoib table
 
@@ -924,15 +811,11 @@ exports.getAllSuketGhoib = async (req, res) => {
       data: records, // Send the records as JSON response
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketKehilanganStpd = async (req, res) => {
+exports.insertSuketKehilanganStpd = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -968,15 +851,11 @@ exports.insertSuketKehilanganStpd = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketKehilanganStpd = async (req, res) => {
+exports.getAllSuketKehilanganStpd = async (req, res, next) => {
   try {
     // Fetch all records from SuketKehilanganStpd table
     const suketKehilanganStpds = await SuketKehilanganStpd.findAll();
@@ -986,15 +865,11 @@ exports.getAllSuketKehilanganStpd = async (req, res) => {
       data: suketKehilanganStpds,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketKehilanganStpd = async (req, res) => {
+exports.deleteSuketKehilanganStpd = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("post id", postId);
@@ -1017,15 +892,11 @@ exports.deleteSuketKehilanganStpd = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketKehilanganKK = async (req, res) => {
+exports.insertSuketKehilanganKK = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1061,15 +932,11 @@ exports.insertSuketKehilanganKK = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketKehilanganKK = async (req, res) => {
+exports.getAllSuketKehilanganKK = async (req, res, next) => {
   try {
     // Fetch all records from SuketKehilanganKK table
     const suketKehilanganKKs = await SuketKehilanganKK.findAll();
@@ -1079,15 +946,11 @@ exports.getAllSuketKehilanganKK = async (req, res) => {
       data: suketKehilanganKKs,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketKehilanganKK = async (req, res) => {
+exports.deleteSuketKehilanganKK = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("suketkk", postId);
@@ -1110,15 +973,11 @@ exports.deleteSuketKehilanganKK = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketKekerabatan = async (req, res) => {
+exports.insertSuketKekerabatan = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1156,15 +1015,11 @@ exports.insertSuketKekerabatan = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketKekerabatan = async (req, res) => {
+exports.getAllSuketKekerabatan = async (req, res, next) => {
   try {
     // Fetch all records from SuketKekerabatan table
     const suketKekerabatans = await SuketKekerabatan.findAll();
@@ -1174,15 +1029,11 @@ exports.getAllSuketKekerabatan = async (req, res) => {
       data: suketKekerabatans,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSUketKekerabatan = async (req, res) => {
+exports.deleteSUketKekerabatan = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("suket kekerabatan", postId);
@@ -1205,15 +1056,11 @@ exports.deleteSUketKekerabatan = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketLahirDesa = async (req, res) => {
+exports.insertSuketLahirDesa = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1249,15 +1096,11 @@ exports.insertSuketLahirDesa = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketLahirDesa = async (req, res) => {
+exports.getAllSuketLahirDesa = async (req, res, next) => {
   try {
     // Fetch all records from SuketLahirDesa table
     const suketLahirDesas = await SuketLahirDesa.findAll();
@@ -1267,15 +1110,11 @@ exports.getAllSuketLahirDesa = async (req, res) => {
       data: suketLahirDesas,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketLahirDesa = async (req, res) => {
+exports.deleteSuketLahirDesa = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("suket Lahir Desa", postId);
@@ -1298,15 +1137,11 @@ exports.deleteSuketLahirDesa = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketLokasiTanah = async (req, res) => {
+exports.insertSuketLokasiTanah = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1342,15 +1177,11 @@ exports.insertSuketLokasiTanah = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketLokasiTanah = async (req, res) => {
+exports.getAllSuketLokasiTanah = async (req, res, next) => {
   try {
     // Fetch all records from SuketLokasiTanah table
     const suketLokasiTanahs = await SuketLokasiTanah.findAll();
@@ -1360,15 +1191,11 @@ exports.getAllSuketLokasiTanah = async (req, res) => {
       data: suketLokasiTanahs,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketLokasiTanah = async (req, res) => {
+exports.deleteSuketLokasiTanah = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketLokasiTanah", postId);
@@ -1391,15 +1218,11 @@ exports.deleteSuketLokasiTanah = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketMenantu = async (req, res) => {
+exports.insertSuketMenantu = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1435,15 +1258,11 @@ exports.insertSuketMenantu = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketMenantu = async (req, res) => {
+exports.getAllSuketMenantu = async (req, res, next) => {
   try {
     // Fetch all records from SuketMenantu table
     const suketMenantus = await SuketMenantu.findAll();
@@ -1453,15 +1272,11 @@ exports.getAllSuketMenantu = async (req, res) => {
       data: suketMenantus,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketMenantu = async (req, res) => {
+exports.deleteSuketMenantu = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketMenantu", postId);
@@ -1484,15 +1299,11 @@ exports.deleteSuketMenantu = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketPendudukLiar = async (req, res) => {
+exports.insertSuketPendudukLiar = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1528,15 +1339,11 @@ exports.insertSuketPendudukLiar = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketPendudukLiar = async (req, res) => {
+exports.getAllSuketPendudukLiar = async (req, res, next) => {
   try {
     // Fetch all records from SuketPendudukLiar table
     const suketPendudukLiars = await SuketPendudukLiar.findAll();
@@ -1546,15 +1353,11 @@ exports.getAllSuketPendudukLiar = async (req, res) => {
       data: suketPendudukLiars,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketPendudukLiar = async (req, res) => {
+exports.deleteSuketPendudukLiar = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketPendudukLiar", postId);
@@ -1577,15 +1380,11 @@ exports.deleteSuketPendudukLiar = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketPenegasanWil = async (req, res) => {
+exports.insertSuketPenegasanWil = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1621,15 +1420,11 @@ exports.insertSuketPenegasanWil = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketPenegasanWil = async (req, res) => {
+exports.getAllSuketPenegasanWil = async (req, res, next) => {
   try {
     // Fetch all records from SuketPenegasanWil table
     const suketPenegasanWils = await SuketPenegasanWil.findAll();
@@ -1639,15 +1434,11 @@ exports.getAllSuketPenegasanWil = async (req, res) => {
       data: suketPenegasanWils,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketPenegasanWil = async (req, res) => {
+exports.deleteSuketPenegasanWil = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketPenegasanWil", postId);
@@ -1670,15 +1461,11 @@ exports.deleteSuketPenegasanWil = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketAktifPerusahaan = async (req, res) => {
+exports.insertSuketAktifPerusahaan = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1714,15 +1501,11 @@ exports.insertSuketAktifPerusahaan = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketAktifPerusahaan = async (req, res) => {
+exports.getAllSuketAktifPerusahaan = async (req, res, next) => {
   try {
     // Fetch all records from SuketAktifPerusahaan table
     const suketAktifPerusahaans = await SuketAktifPerusahaan.findAll();
@@ -1732,15 +1515,11 @@ exports.getAllSuketAktifPerusahaan = async (req, res) => {
       data: suketAktifPerusahaans,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketAktifPerusahaan = async (req, res) => {
+exports.deleteSuketAktifPerusahaan = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketAktifPerusahaan", postId);
@@ -1763,15 +1542,11 @@ exports.deleteSuketAktifPerusahaan = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketUntukMenikah = async (req, res) => {
+exports.insertSuketUntukMenikah = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1807,15 +1582,11 @@ exports.insertSuketUntukMenikah = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketUntukMenikah = async (req, res) => {
+exports.getAllSuketUntukMenikah = async (req, res, next) => {
   try {
     // Fetch all records from SuketUntukMenikah table
     const suketUntukMenikahs = await SuketUntukMenikah.findAll();
@@ -1825,15 +1596,11 @@ exports.getAllSuketUntukMenikah = async (req, res) => {
       data: suketUntukMenikahs,
     });
   } catch (error) {
-    console.error("Error while fetching data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketTelahMenikah = async (req, res) => {
+exports.insertSuketTelahMenikah = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1871,15 +1638,11 @@ exports.insertSuketTelahMenikah = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketTelahMenikah = async (req, res) => {
+exports.getAllSuketTelahMenikah = async (req, res, next) => {
   try {
     // Fetch all records from SuketTelahMenikah table
     const suketTelahMenikahs = await SuketTelahMenikah.findAll();
@@ -1889,18 +1652,11 @@ exports.getAllSuketTelahMenikah = async (req, res) => {
       data: suketTelahMenikahs,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketTelahMenikah data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketTelahMenikah = async (req, res) => {
+exports.deleteSuketTelahMenikah = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketTelahMenikah", postId);
@@ -1923,15 +1679,11 @@ exports.deleteSuketTelahMenikah = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketPisahRumah = async (req, res) => {
+exports.insertSuketPisahRumah = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -1967,15 +1719,11 @@ exports.insertSuketPisahRumah = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketPisahRumah = async (req, res) => {
+exports.getAllSuketPisahRumah = async (req, res, next) => {
   try {
     // Fetch all records from SuketPisahRumah table
     const suketPisahRumahs = await SuketPisahRumah.findAll();
@@ -1985,15 +1733,11 @@ exports.getAllSuketPisahRumah = async (req, res) => {
       data: suketPisahRumahs,
     });
   } catch (error) {
-    console.error("Error while fetching SuketPisahRumah data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketPernyataanWaris = async (req, res) => {
+exports.insertSuketPernyataanWaris = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -2029,15 +1773,11 @@ exports.insertSuketPernyataanWaris = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketPernyataanWaris = async (req, res) => {
+exports.getAllSuketPernyataanWaris = async (req, res, next) => {
   try {
     // Fetch all records from SuketPernyataanWaris table
     const suketPernyataanWaris = await SuketPernyataanWaris.findAll();
@@ -2047,18 +1787,11 @@ exports.getAllSuketPernyataanWaris = async (req, res) => {
       data: suketPernyataanWaris,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketPernyataanWaris data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketPernyataanWaris = async (req, res) => {
+exports.deleteSuketPernyataanWaris = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketPernyataanWaris", postId);
@@ -2081,15 +1814,11 @@ exports.deleteSuketPernyataanWaris = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketPengurusanPBB = async (req, res) => {
+exports.insertSuketPengurusanPBB = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -2125,15 +1854,11 @@ exports.insertSuketPengurusanPBB = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketPengurusanPBB = async (req, res) => {
+exports.getAllSuketPengurusanPBB = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanPBB table
     const suketPengurusanPBBs = await SuketPengurusanPBB.findAll();
@@ -2143,18 +1868,11 @@ exports.getAllSuketPengurusanPBB = async (req, res) => {
       data: suketPengurusanPBBs,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketPengurusanPBB data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketPengurusanPBB = async (req, res) => {
+exports.deleteSuketPengurusanPBB = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketPengurusanPBB", postId);
@@ -2177,15 +1895,11 @@ exports.deleteSuketPengurusanPBB = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuketPengurusanKK = async (req, res) => {
+exports.insertSuketPengurusanKK = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -2224,15 +1938,11 @@ exports.insertSuketPengurusanKK = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllSuketPengurusanKK = async (req, res) => {
+exports.getAllSuketPengurusanKK = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const suketPengurusanKKs = await SuketPengurusanKK.findAll();
@@ -2242,18 +1952,11 @@ exports.getAllSuketPengurusanKK = async (req, res) => {
       data: suketPengurusanKKs,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketPengurusanKK data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteSuketPengurusanKK = async (req, res) => {
+exports.deleteSuketPengurusanKK = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketPengurusanKK", postId);
@@ -2276,15 +1979,11 @@ exports.deleteSuketPengurusanKK = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertImbs = async (req, res) => {
+exports.insertImbs = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -2316,15 +2015,11 @@ exports.insertImbs = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.getAllImbs = async (req, res) => {
+exports.getAllImbs = async (req, res, next) => {
   try {
     const imbsData = await Imbs.findAll(); // Assuming you have an Imbs model defined
 
@@ -2333,15 +2028,11 @@ exports.getAllImbs = async (req, res) => {
       data: imbsData, // Return the data retrieved from the database
     });
   } catch (error) {
-    console.error("Error while retrieving data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.deleteImbs = async (req, res) => {
+exports.deleteImbs = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("post id", postId);
@@ -2364,15 +2055,11 @@ exports.deleteImbs = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 };
 
-exports.insertSuratDomisiliLembaga = async (req, res) => {
+exports.insertSuratDomisiliLembaga = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -2405,15 +2092,11 @@ exports.insertSuratDomisiliLembaga = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.getAllSuratDomisiliLembaga = async (req, res) => {
+exports.getAllSuratDomisiliLembaga = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuratDomisiliLembaga.findAll();
@@ -2423,18 +2106,11 @@ exports.getAllSuratDomisiliLembaga = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketPengurusanKK data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.deleteSuratDomisiliLembaga = async (req, res) => {
+exports.deleteSuratDomisiliLembaga = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuratDomisiliLembaga", postId);
@@ -2457,15 +2133,11 @@ exports.deleteSuratDomisiliLembaga = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.insertSuratUsaha = async (req, res) => {
+exports.insertSuratUsaha = async (req, res, next) => {
   try {
     const data = req.body;
 
@@ -2497,15 +2169,11 @@ exports.insertSuratUsaha = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.getAllSuratUsaha = async (req, res) => {
+exports.getAllSuratUsaha = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuketUsaha.findAll();
@@ -2515,18 +2183,11 @@ exports.getAllSuratUsaha = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketUsaha data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.deleteSuratUsaha = async (req, res) => {
+exports.deleteSuratUsaha = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketUsaha", postId);
@@ -2549,15 +2210,11 @@ exports.deleteSuratUsaha = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.insertSuketBedaData = async (req, res) => {
+exports.insertSuketBedaData = async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
@@ -2590,15 +2247,11 @@ exports.insertSuketBedaData = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.getAllSuketBedaData = async (req, res) => {
+exports.getAllSuketBedaData = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuketBedaData.findAll();
@@ -2608,18 +2261,11 @@ exports.getAllSuketBedaData = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketUsaha data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.deleteSuketBedaData = async (req, res) => {
+exports.deleteSuketBedaData = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketUsaha", postId);
@@ -2642,15 +2288,11 @@ exports.deleteSuketBedaData = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.insertSuketCatatanKepolisian = async (req, res) => {
+exports.insertSuketCatatanKepolisian = async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
@@ -2683,15 +2325,11 @@ exports.insertSuketCatatanKepolisian = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.getAllSuketCatatanKepolisian = async (req, res) => {
+exports.getAllSuketCatatanKepolisian = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuketCatatanKepolisian.findAll();
@@ -2701,18 +2339,11 @@ exports.getAllSuketCatatanKepolisian = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketCatatanKepolisian data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.deleteSuketCatatanKepolisian = async (req, res) => {
+exports.deleteSuketCatatanKepolisian = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketCatatanKepolisian", postId);
@@ -2735,15 +2366,11 @@ exports.deleteSuketCatatanKepolisian = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.insertSuketKematian = async (req, res) => {
+exports.insertSuketKematian = async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
@@ -2776,15 +2403,11 @@ exports.insertSuketKematian = async (req, res) => {
       msg: "Berhasil",
     });
   } catch (error) {
-    console.error("Error while inserting data:", error.message);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.getAllSuketKematian = async (req, res) => {
+exports.getAllSuketKematian = async (req, res, next) => {
   try {
     // Fetch all records from SuketPengurusanKK table
     const data = await SuketKematian.findAll();
@@ -2794,18 +2417,11 @@ exports.getAllSuketKematian = async (req, res) => {
       data: data,
     });
   } catch (error) {
-    console.error(
-      "Error while fetching SuketCatatanKepolisian data:",
-      error.message
-    );
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }
 
-exports.deleteSuketKematian = async (req, res) => {
+exports.deleteSuketKematian = async (req, res, next) => {
   try {
     const postId = req.params.id;
     console.log("SuketKematian", postId);
@@ -2828,10 +2444,6 @@ exports.deleteSuketKematian = async (req, res) => {
       msg: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Message : ", error.stack);
-    return res.status(500).json({
-      status: false,
-      msg: "Internal Server Error",
-    });
+    next(error);
   }
 }

@@ -4,3 +4,4 @@ public/post/
 .env
 .vscode/
 package-lock.
+error.log
