@@ -226,10 +226,26 @@ router.put("/post/unpublish/:id", storeController.unPubslishPost);
 // suratdomisililembaga
 router.post("/suratdomisililembaga/buat", dokumenController.insertSuratDomisiliLembaga);
 router.get("/suratdomisililembaga/all", dokumenController.getAllSuratDomisiliLembaga);
-// router.delete("/suratdomisililembaga/delete/:id", dokumenController.deleteSuratDomisiliLembaga);
+router.delete("/suratdomisililembaga/delete/:id", dokumenController.deleteSuratDomisiliLembaga);
 
 // suketusaha
 router.post("/suketusaha/buat", dokumenController.insertSuratUsaha);
+router.get("/suketusaha/all", dokumenController.getAllSuratUsaha);
+router.delete("/suketusaha/delete/:id", dokumenController.deleteSuratUsaha);
 
+// suketbedadata
+router.post("/suketbedadata/buat", dokumenController.insertSuketBedaData);
+router.get("/suketbedadata/all", dokumenController.getAllSuketBedaData);
+router.delete("/suketbedadata/delete/:id", dokumenController.deleteSuketBedaData);
+
+// suketcatatankepolisian
+router.post("/suketcatatankepolisian/buat", dokumenController.insertSuketCatatanKepolisian);
+router.get("/suketcatatankepolisian/all", dokumenController.getAllSuketCatatanKepolisian);
+router.delete("/suketcatatankepolisian/delete/:id", dokumenController.deleteSuketCatatanKepolisian);
+
+// suketkematian
+router.post("/suketkematian/buat", dokumenController.insertSuketKematian);
+router.get("/suketkematian/all", dokumenController.getAllSuketKematian);
+router.delete("/suketkematian/delete/:id", dokumenController.deleteSuketKematian);
 
 module.exports = router;
