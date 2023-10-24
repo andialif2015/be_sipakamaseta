@@ -318,6 +318,9 @@ exports.insertSuketBlmPunyaRumah = async (req, res) => {
   try {
     const data = req.body;
 
+    // console.log(data);
+    // return;
+
     const respInsert = await SuketBlmPunyaRumah.create(data);
     const pathTemplate = path.join(
       __dirname,
