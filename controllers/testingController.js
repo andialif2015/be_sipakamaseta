@@ -1,6 +1,6 @@
 const { Survey } = require('../models');
 
-exports.coba = async(req,res) => {
+exports.coba = async(req,res,next) => {
     try {
 
         return res.status(200).json({
@@ -8,10 +8,6 @@ exports.coba = async(req,res) => {
             msg: 'sukses',
         });
     } catch (error) {
-        console.log(error);
-        return res.status(500).json({
-          status: false,
-          msg: "Internal Server Error",
-        });
+        next(error);
     }
 }

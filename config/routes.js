@@ -1,4 +1,5 @@
 const express = require("express");
+const winston = require("winston");
 const router = express.Router();
 const path = require("path");
 
@@ -7,6 +8,8 @@ const testingController = require("../controllers/testingController");
 const dokumenController = require("../controllers/dokumenControllers");
 const fileController = require("../controllers/fileController");
 const storeController = require("../controllers/storeController");
+const {errorMiddleware} = require("../middleware/errorLogs");
+
 
 //testing
 router.get("/test", testingController.coba);
@@ -247,5 +250,7 @@ router.delete("/suketcatatankepolisian/delete/:id", dokumenController.deleteSuke
 router.post("/suketkematian/buat", dokumenController.insertSuketKematian);
 router.get("/suketkematian/all", dokumenController.getAllSuketKematian);
 router.delete("/suketkematian/delete/:id", dokumenController.deleteSuketKematian);
+
+router.use(errorMiddleware);
 
 module.exports = router;
