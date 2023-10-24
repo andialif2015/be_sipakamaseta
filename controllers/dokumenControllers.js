@@ -321,10 +321,6 @@ exports.insertSuketBlmPunyaRumah = async (req, res, next) => {
 };
 
 exports.getAllSuketBlmPunyaRumah = async (req, res, next) => {
-
-  return res.status(200).json({
-    status: true,
-  });
   try {
     const records = await SuketBlmPunyaRumah.findAll(); // Retrieve all records from the SuketBlmPunyaRumah table
 
