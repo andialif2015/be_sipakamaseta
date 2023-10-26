@@ -17,6 +17,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
+      nohp: {
+        type: Sequelize.STRING,
+      },
       tempatL: {
         type: Sequelize.STRING,
       },
