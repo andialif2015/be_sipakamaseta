@@ -26,37 +26,19 @@ module.exports = {
       tglL: {
         type: Sequelize.STRING,
       },
+      goldar: {
+        type: Sequelize.STRING,
+      },
+      wargaN: {
+        type: Sequelize.STRING,
+      },
       alamat: {
         type: Sequelize.STRING,
       },
       agama: {
         type: Sequelize.STRING,
       },
-      gender: {
-        type: Sequelize.STRING,
-      },
-      sekolah: {
-        type: Sequelize.STRING,
-      },
-      namewali: {
-        type: Sequelize.STRING,
-      },
-      tempatLwali: {
-        type: Sequelize.STRING,
-      },
-      tglLwali: {
-        type: Sequelize.STRING,
-      },
-      alamatwali: {
-        type: Sequelize.STRING,
-      },
-      genderwali: {
-        type: Sequelize.STRING,
-      },
-      agamawali: {
-        type: Sequelize.STRING,
-      },
-      workwali: {
+      work: {
         type: Sequelize.STRING,
       },
       status: {

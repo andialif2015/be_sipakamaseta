@@ -29,34 +29,13 @@ module.exports = {
       alamat: {
         type: Sequelize.STRING,
       },
-      agama: {
+      nik: {
         type: Sequelize.STRING,
       },
-      gender: {
+      nokk: {
         type: Sequelize.STRING,
       },
-      sekolah: {
-        type: Sequelize.STRING,
-      },
-      namewali: {
-        type: Sequelize.STRING,
-      },
-      tempatLwali: {
-        type: Sequelize.STRING,
-      },
-      tglLwali: {
-        type: Sequelize.STRING,
-      },
-      alamatwali: {
-        type: Sequelize.STRING,
-      },
-      genderwali: {
-        type: Sequelize.STRING,
-      },
-      agamawali: {
-        type: Sequelize.STRING,
-      },
-      workwali: {
+      alasan: {
         type: Sequelize.STRING,
       },
       status: {

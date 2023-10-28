@@ -364,6 +364,8 @@ exports.insertSpToDesa = async (req, res, next) => {
   try {
     const data = req.body;
 
+    console.log(data);
+
     const respInsert = await SpToDesa.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -524,6 +526,8 @@ exports.deleteSuperImunisasi = async (req, res, next) => {
 exports.insertSuperUtangPiutang = async (req, res, next) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuperUtangPiutang.create(data);
     const pathTemplate = path.join(
@@ -822,6 +826,8 @@ exports.insertSuketKehilanganStpd = async (req, res, next) => {
   try {
     const data = req.body;
 
+    console.log(data);
+
     const respInsert = await SuketKehilanganStpd.create(data);
     const pathTemplate = path.join(
       __dirname,
@@ -902,6 +908,8 @@ exports.deleteSuketKehilanganStpd = async (req, res, next) => {
 exports.insertSuketKehilanganKK = async (req, res, next) => {
   try {
     const data = req.body;
+
+    console.log(data);
 
     const respInsert = await SuketKehilanganKK.create(data);
     const pathTemplate = path.join(

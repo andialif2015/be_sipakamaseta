@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("suketsehilanganstpd", {
+    await queryInterface.createTable("suketkehilanganstpd", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -35,28 +35,10 @@ module.exports = {
       gender: {
         type: Sequelize.STRING,
       },
-      sekolah: {
+      work: {
         type: Sequelize.STRING,
       },
-      namewali: {
-        type: Sequelize.STRING,
-      },
-      tempatLwali: {
-        type: Sequelize.STRING,
-      },
-      tglLwali: {
-        type: Sequelize.STRING,
-      },
-      alamatwali: {
-        type: Sequelize.STRING,
-      },
-      genderwali: {
-        type: Sequelize.STRING,
-      },
-      agamawali: {
-        type: Sequelize.STRING,
-      },
-      workwali: {
+      nik: {
         type: Sequelize.STRING,
       },
       status: {
@@ -70,6 +52,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("suketsehilanganstpd");
+    await queryInterface.dropTable("suketkehilanganstpd");
   }
 };
