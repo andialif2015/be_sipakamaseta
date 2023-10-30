@@ -247,7 +247,7 @@ router.delete("/suketkematian/delete/:id", dokumenController.deleteSuketKematian
 //store
 router.post("/product/buat", storeController.insertProduct);
 router.get("/product/all", storeController.getAllProduct);
-// router.delete("/store/delete/:id", storeController.deleteStoreById);
+router.delete("/product/delete/:id", storeController.deleteProduct);
 // router.put("/store/publish/:id", storeController.pubslishStore);
 // router.put("/store/unpublish/:id", storeController.unPubslishStore);
 

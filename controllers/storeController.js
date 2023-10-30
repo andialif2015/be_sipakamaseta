@@ -82,11 +82,11 @@ exports.getAllProduct = async (req, res) => {
   }
 };
 
-exports.deletePostById = async (req, res) => {
+exports.deleteProduct = async (req, res) => {
   try {
     const postId = req.params.id;
-    console.log('post id', postId);
-    const result = await Post.destroy({
+    console.log('Product', postId);
+    const result = await Product.destroy({
       where: {
         id: postId,
       },
