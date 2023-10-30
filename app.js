@@ -12,7 +12,7 @@ require('dotenv').config();
 
 app.use(fileUpload());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "*",
@@ -24,6 +24,7 @@ app.use(
 const router = require("./config/routes");
 app.use('/api/v1/public/post/', express.static('public/post'))
 app.use('/api/v1', router);
+app.use(express.static('public'))
 
 // routes(app)
 

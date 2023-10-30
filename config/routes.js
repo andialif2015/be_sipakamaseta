@@ -8,7 +8,7 @@ const testingController = require("../controllers/testingController");
 const dokumenController = require("../controllers/dokumenControllers");
 const fileController = require("../controllers/fileController");
 const storeController = require("../controllers/storeController");
-const {errorMiddleware} = require("../middleware/errorLogs");
+const { errorMiddleware } = require("../middleware/errorLogs");
 
 
 //testing
@@ -219,13 +219,6 @@ router.delete("/imbs/delete/:id", dokumenController.deleteImbs);
 
 router.get("/download", fileController.downloadFile);
 
-//store
-router.post("/post/buat", storeController.insertPost);
-router.get("/post/all", storeController.getAllPosts);
-router.delete("/post/delete/:id", storeController.deletePostById);
-router.put("/post/publish/:id", storeController.pubslishPost);
-router.put("/post/unpublish/:id", storeController.unPubslishPost);
-
 // suratdomisililembaga
 router.post("/suratdomisililembaga/buat", dokumenController.insertSuratDomisiliLembaga);
 router.get("/suratdomisililembaga/all", dokumenController.getAllSuratDomisiliLembaga);
@@ -250,6 +243,13 @@ router.delete("/suketcatatankepolisian/delete/:id", dokumenController.deleteSuke
 router.post("/suketkematian/buat", dokumenController.insertSuketKematian);
 router.get("/suketkematian/all", dokumenController.getAllSuketKematian);
 router.delete("/suketkematian/delete/:id", dokumenController.deleteSuketKematian);
+
+//store
+router.post("/product/buat", storeController.insertProduct);
+router.get("/product/all", storeController.getAllProduct);
+// router.delete("/store/delete/:id", storeController.deleteStoreById);
+// router.put("/store/publish/:id", storeController.pubslishStore);
+// router.put("/store/unpublish/:id", storeController.unPubslishStore);
 
 router.use(errorMiddleware);
 
