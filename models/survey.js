@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Survey.init(
     {
-      id_survey: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,

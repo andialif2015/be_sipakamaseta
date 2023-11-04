@@ -17,7 +17,7 @@ router.get("/test", testingController.coba);
 //survey
 router.post("/survey/buat", surveyController.buatSurvey);
 router.get("/survey/all", surveyController.getAllSurvey);
-
+router.delete('/survey/delete/:id', surveyController.deleteSurvey);
 //Dokumen
 //spformdesa
 router.post("/spfromdesa/buat", dokumenController.insertSpFromDesa);

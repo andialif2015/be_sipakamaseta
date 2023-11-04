@@ -6,9 +6,9 @@ exports.buatSurvey = async (req, res) => {
     let data = req.body;
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
-        if(data[key] == 'true'){
+        if (data[key] == 'true') {
           data[key] = 1;
-        }else if(data[key] == 'false'){
+        } else if (data[key] == 'false') {
           data[key] = 0;
         }
       }
@@ -45,3 +45,30 @@ exports.getAllSurvey = async (req, res) => {
     });
   }
 }
+
+exports.deleteSurvey = async (req, res, next) => {
+  try {
+    const surveyId = req.params.id;
+    console.log("Survey", surveyId);
+
+    const result = await Survey.destroy({
+      where: {
+        id: surveyId,
+      },
+    });
+
+    if (result === 0) {
+      return res.status(404).json({
+        status: false,
+        msg: "Post not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      msg: "Post deleted successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};

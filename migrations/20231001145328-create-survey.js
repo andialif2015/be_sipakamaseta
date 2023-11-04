@@ -9,9 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_survey: {
-        type: Sequelize.INTEGER
-      },
       nama: {
         type: Sequelize.STRING,
       },
