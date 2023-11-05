@@ -10,6 +10,8 @@ const fileController = require("../controllers/fileController");
 const storeController = require("../controllers/storeController");
 const { errorMiddleware } = require("../middleware/errorLogs");
 
+// list surat masuk data
+router.get("/data", dokumenController.listData);
 
 //testing
 router.get("/test", testingController.coba);
